@@ -16,7 +16,7 @@ mutagen_enabled: false
 use_dns_when_possible: true
 composer_version: "2"
 web_environment: [
-  TYPO3_CONTEXT=Development/Jon
+  TYPO3_CONTEXT=Development
 ]
 nodejs_version: "16"
 
