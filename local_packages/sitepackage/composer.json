@@ -1,0 +1,24 @@
+{
+    "name": "ovan-gmbh/sitepackage",
+    "type": "typo3-cms-extension",
+    "version": "0.1",
+    "description": "",
+    "homepage": "https://highschool.ddev.site",
+    "license": ["GPL-2.0-or-later"],
+    "keywords": ["TYPO3 CMS"],
+    "require": {
+        "typo3/cms-core": "^10.4",
+        "typo3/cms-rte-ckeditor": "^10.4",
+        "typo3/cms-fluid-styled-content": "^10.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "OvanGmbh\\Sitepackage\\": "Classes/"
+        }
+    },
+    "extra": {
+        "typo3/cms": {
+            "extension-key": "sitepackage"
+        }
+    }
+}

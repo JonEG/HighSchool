@@ -12,8 +12,15 @@
 		},
 		"sort-packages": true
 	},
+	"repositories": [
+		{
+			 "type": "path",
+			 "url": "./local_packages/*"
+		}
+  ],
 	"require": {
 		"helhum/typo3-console": "^6.0.0",
+		"ovan-gmbh/sitepackage": "^0.1.0",
 		"typo3/cms-about": "^10.4.0",
 		"typo3/cms-backend": "^10.4.0",
 		"typo3/cms-belog": "^10.4.0",
