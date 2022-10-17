@@ -1,5 +1,10 @@
 <f:layout name="Default" />
-<f:section name="Main">
 
+<f:section name="Menu">
+  <f:render partial="Menu" arguments="{_all}"></f:render>
+</f:section>
+<f:section name="Main">
   <f:cObject typoscriptObjectPath="lib.dynamicContent" data="{colPos: '0'}" />
+</f:section>
+<f:section name="Footer">
 </f:section>
