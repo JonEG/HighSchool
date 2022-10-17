@@ -1,0 +1,25 @@
+{
+  "name": "ovan-gmbh/class_year",
+  "version": "1.0.0",
+  "authors": [
+    {
+      "name": "Jon Echeveste Gonzalez",
+      "role": "Developer"
+    }
+  ],
+  "type": "typo3-cms-extension",
+  "license": "GPL-2.0-or-later",
+  "autoload": {
+    "psr-4": {
+      "OvanGmbh\\ClassYear\\": "Classes/"
+    }
+  },
+  "require": {
+    "typo3/cms-core": ">=10.4 <11.0.0"
+  },
+  "extra": {
+    "typo3/cms": {
+      "extension-key": "classyear"
+    }
+  }
+}

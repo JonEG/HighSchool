@@ -1,0 +1,11 @@
+<xliff version="1.0" xmlns:t3="http://typo3.org/schemas/xliff">
+  <file source-language="en" target-language="en" datatype="plaintext" original="messages" product-name="classyear">
+     <header/>
+     <body>
+        <trans-unit id="studentTitle" xml:space="preserve">
+          <source>Student</source>
+           <target>Estudiante</target>
+        </trans-unit>
+     </body>
+  </file>
+</xliff>

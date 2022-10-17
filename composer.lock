@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "bc91dca08ce4fe0d12d388365b4d5fdc",
+    "content-hash": "c55825ce630054c672a9adb58645dabc",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -1333,6 +1333,41 @@
                 "source": "https://github.com/nikic/PHP-Parser/tree/v4.15.1"
             },
             "time": "2022-09-04T07:30:47+00:00"
+        },
+        {
+            "name": "ovan-gmbh/class_year",
+            "version": "1.0.0",
+            "dist": {
+                "type": "path",
+                "url": "./local_packages/class_year",
+                "reference": "251bd3d100e5c4cbd53ca40a4fb6365e199d2e8f"
+            },
+            "require": {
+                "typo3/cms-core": ">=10.4 <11.0.0"
+            },
+            "type": "typo3-cms-extension",
+            "extra": {
+                "typo3/cms": {
+                    "extension-key": "classyear"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "OvanGmbh\\ClassYear\\": "Classes/"
+                }
+            },
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Jon Echeveste Gonzalez",
+                    "role": "Developer"
+                }
+            ],
+            "transport-options": {
+                "relative": true
+            }
         },
         {
             "name": "ovan-gmbh/sitepackage",
