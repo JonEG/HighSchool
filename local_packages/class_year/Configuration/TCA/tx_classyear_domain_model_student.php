@@ -1,7 +1,7 @@
 <?php
 return [
     'ctrl' => [
-        'title' => 'LLL:EXT:classyear/Resources/Private/Language/locallang.xlf:studentTitle',
+        'title' => 'LLL:EXT:classyear/Resources/Private/Language/locallang.xlf:student',
         'label' => 'name',
         'iconfile' => 'EXT:classyear/Resources/Public/Icons/Student.gif',
     ],
@@ -27,8 +27,21 @@ return [
                 'eval' => 'trim',
             ],
         ],
+        'classroom' => [
+            'label' => 'LLL:EXT:classyear/Resources/Private/Language/locallang.xlf:classroom',
+            'config' => [
+                'type' => 'select',
+                'renderType' => 'selectSingle',
+                'foreign_table' => 'tx_classyear_domain_model_classroom',
+                'fieldWizard' => [
+                    'selectIcons' => [
+                        'disabled' => false,
+                    ],
+                ],
+            ],
+        ],
     ],
     'types' => [
-        '0' => ['showitem' => 'name, surname, email'],
+        '0' => ['showitem' => 'name, surname, email, classroom'],
     ],
 ];

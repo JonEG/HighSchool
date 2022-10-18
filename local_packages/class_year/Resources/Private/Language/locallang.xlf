@@ -3,8 +3,20 @@
    <file source-language="en" datatype="plaintext" original="messages" product-name="classyear">
       <header/>
       <body>
-         <trans-unit id="studentTitle" xml:space="preserve">
+         <trans-unit id="student" xml:space="preserve">
             <source>Student</source>
+         </trans-unit>
+         <trans-unit id="classroom" xml:space="preserve">
+            <source>Classroom</source>
+         </trans-unit>
+         <trans-unit id="name" xml:space="preserve">
+            <source>Name</source>
+         </trans-unit>
+         <trans-unit id="surname" xml:space="preserve">
+            <source>Surname</source>
+         </trans-unit>
+         <trans-unit id="email" xml:space="preserve">
+            <source>Email</source>
          </trans-unit>
       </body>
    </file>

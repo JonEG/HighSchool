@@ -4,26 +4,24 @@ declare(strict_types = 1);
 
 namespace OvanGmbh\ClassYear\Domain\Model;
 
-use \TYPO3\CMS\Extbase\Persistance\ObjectStorage;
-
-use Student;
+use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 
 /**
  * 
  */
-class Classroom 
+class Classroom extends AbstractEntity
 {
     /**
     * @var string name
     */
-    protected string $name;
-  
+    protected $name;
+
     /**
      * Get name
      *
      * @return  string
      */ 
-    public function getName(): string
+    public function getName()
     {
         return $this->name;
     }
@@ -35,11 +33,10 @@ class Classroom
      *
      * @return  self
      */ 
-    public function setName(string $name): self
+    public function setName(string $name)
     {
         $this->name = $name;
 
         return $this;
     }
-   
 }

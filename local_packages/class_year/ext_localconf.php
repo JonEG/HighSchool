@@ -9,6 +9,6 @@ defined('TYPO3_MODE') || die('Access denied.');
     ],
     // non-cacheable actions
     [
-        \OvanGmbh\ClassYear\Controller\StudentController::class => '',
+        \OvanGmbh\ClassYear\Controller\StudentController::class => 'list',
     ]
 );

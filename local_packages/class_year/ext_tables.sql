@@ -6,6 +6,8 @@ CREATE TABLE tx_classyear_domain_model_student (
   name varchar(255) DEFAULT '' NOT NULL,
   surname varchar(255) DEFAULT '' NOT NULL,
   email varchar(255) DEFAULT '' NOT NULL,
+  classroom int(10) unsigned NOT NULL,
+  FOREIGN KEY (classroom) REFERENCES tx_classyear_domain_model_classroom(uid)
 );
 
 CREATE TABLE tx_classyear_domain_model_subject (
