@@ -53,7 +53,7 @@
 		"typo3-cms-scripts": [
 			"vendor/bin/typo3cms install:generatepackagestates",
 			"vendor/bin/typo3cms install:fixfolderstructure",
-			"vendor/bin/typo3cms dabatase:updatescheme safe"
+			"vendor/bin/typo3cms database:updateschema safe"
 		],
 		"post-autoload-dump": [
 			"@typo3-cms-scripts"

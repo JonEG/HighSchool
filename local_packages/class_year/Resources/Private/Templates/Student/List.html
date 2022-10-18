@@ -1,0 +1,16 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers">
+<table border="1" cellspacing="1" cellpadding="5">
+    <tr>
+        <td>Name</td>
+        <td>Surname</td>
+        <td>Email</td>
+    </tr>
+    <f:for each="{students}" as="student">
+        <tr>
+            <td align="top">{student.name}</td>
+            <td align="top">{student.surname}</td>
+            <td align="top">{student.email}</td>
+        </tr>
+    </f:for>
+</table>
+</html>
