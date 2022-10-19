@@ -4,17 +4,13 @@ declare(strict_types = 1);
 
 namespace OvanGmbh\ClassYear\Domain\Model;
 
-use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
+use TYPO3\CMS\Extbase\Domain\Model\FrontendUser;
 
 /**
  * 
  */
-class Student extends AbstractEntity
+class Student extends FrontendUser
 {
-    /**
-    * @var string Student name
-    */
-    protected $name;
 
     /**
     * @var string Student surname
@@ -22,38 +18,9 @@ class Student extends AbstractEntity
     protected $surname;
 
     /**
-    * @var string Student email
-    */
-    protected $email;
-
-    /**
     * @var ClassRoom 
     */
     protected $classroom;
-
-    /**
-     * Get student name
-     *
-     * @return  string
-     */ 
-    public function getName()
-    {
-        return $this->name;
-    }
-
-    /**
-     * Set student name
-     *
-     * @param  string  $name  Student name
-     *
-     * @return  self
-     */ 
-    public function setName(string $name)
-    {
-        $this->name = $name;
-
-        return $this;
-    }
 
     /**
      * Get student surname
@@ -75,30 +42,6 @@ class Student extends AbstractEntity
     public function setSurname(string $surname)
     {
         $this->surname = $surname;
-
-        return $this;
-    }
-
-    /**
-     * Get student email
-     *
-     * @return  string
-     */ 
-    public function getEmail()
-    {
-        return $this->email;
-    }
-
-    /**
-     * Set student email
-     *
-     * @param  string  $email  Student email
-     *
-     * @return  self
-     */ 
-    public function setEmail(string $email)
-    {
-        $this->email = $email;
 
         return $this;
     }
