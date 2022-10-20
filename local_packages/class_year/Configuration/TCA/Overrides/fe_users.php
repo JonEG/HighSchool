@@ -1,18 +1,17 @@
 <?php
 defined('TYPO3') or die();
 
-// Add some fields to fe_users table to show TCA fields definitions
+//? Add some fields to fe_users table to show TCA fields definitions
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('fe_users',
    [
         'tx_classyear_classroom' => [
             'label' => 'LLL:EXT:classyear/Resources/Private/Language/locallang.xlf:classroom',
+            'displayCond' => 'FIELD:tx_extbase_type:=:tx_classyear_domain_model_student',
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
-                'default' => null,
                 'items' => [
-                    ['null', null],
-                    ['Please select an option','--div--'], // null-option
+                    ['Please select an option','--div--'],
                 ],
                 'foreign_table' => 'tx_classyear_domain_model_classroom',
                 'fieldWizard' => [
@@ -25,11 +24,12 @@ defined('TYPO3') or die();
    ]
 );
 
+//? Add to fe_users TCA in backoffice
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes(
    'fe_users',
    'tx_classyear_classroom',
    '',
-   'after:password'
+   'after:tx_extbase_type'
 );
 
 //? Record type for Students
