@@ -1,10 +1,10 @@
 <?php
-
+//? Add Plugin basic configuration to the TCA
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
-    'ClassYear',
-    'StudentList',
-    'List current students',
-    'EXT:classyear/Resources/Public/Icons/Extension.png'
+    'ClassYear', // extensionName
+    'StudentList', // pluginName
+    'List current students', // pluginTitle
+    'EXT:classyear/Resources/Public/Icons/Extension.png'  // pluginIcon
 );
 
 //? add to Includes list on the backoffice

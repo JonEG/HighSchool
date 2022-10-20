@@ -21,7 +21,15 @@
          </trans-unit>
          <trans-unit id="email" xml:space="preserve">
             <source>Email</source>
-            <source>Correo</source>
+            <target>Correo</target>
+         </trans-unit>
+         <trans-unit id="tutor" xml:space="preserve">
+            <source>Tutor</source>
+            <target>Tutor</target>
+         </trans-unit>
+         <trans-unit id="extension.title" xml:space="preserve">
+            <source>My Class Year</source>
+            <target>Año Escolar</target>
          </trans-unit>
       </body>
    </file>

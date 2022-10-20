@@ -18,6 +18,12 @@
          <trans-unit id="email" xml:space="preserve">
             <source>Email</source>
          </trans-unit>
+         <trans-unit id="tutor" xml:space="preserve">
+            <source>Tutor</source>
+         </trans-unit>
+         <trans-unit id="extension.title" xml:space="preserve">
+            <source>My Class Year</source>
+         </trans-unit>
       </body>
    </file>
 </xliff>

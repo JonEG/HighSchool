@@ -17,6 +17,11 @@ class Classroom extends AbstractEntity
     protected $name;
 
     /**
+     * @var Student tutor
+     */
+    protected $tutor;
+
+    /**
      * Get name
      *
      * @return  string
@@ -36,6 +41,30 @@ class Classroom extends AbstractEntity
     public function setName(string $name)
     {
         $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get tutor
+     *
+     * @return  Student
+     */ 
+    public function getTutor()
+    {
+        return $this->tutor;
+    }
+
+    /**
+     * Set tutor
+     *
+     * @param  Student  $tutor  tutor
+     *
+     * @return  self
+     */ 
+    public function setTutor(Student $tutor)
+    {
+        $this->tutor = $tutor;
 
         return $this;
     }

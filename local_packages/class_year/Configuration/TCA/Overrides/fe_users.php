@@ -9,6 +9,11 @@ defined('TYPO3') or die();
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
+                'default' => null,
+                'items' => [
+                    ['null', null],
+                    ['Please select an option','--div--'], // null-option
+                ],
                 'foreign_table' => 'tx_classyear_domain_model_classroom',
                 'fieldWizard' => [
                     'selectIcons' => [
@@ -22,5 +27,7 @@ defined('TYPO3') or die();
 
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes(
    'fe_users',
-   'tx_classyear_classroom'
+   'tx_classyear_classroom',
+   '',
+   'after:password'
 );

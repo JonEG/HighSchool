@@ -13,8 +13,28 @@ return [
                 'eval' => 'trim',
             ],
         ],
+        'tutor' => [
+            'tutor' => 'LLL:EXT:classyear/Resources/Private/Language/locallang.xlf:tutor',
+            'config' => [
+                'type' => 'select',
+                'default' => null,
+                'items' => [
+                    ['null', null],
+                    ['Please select an option','--div--'], // null-option
+                ],
+                'renderType' => 'selectSingle',
+                'foreign_table' => 'fe_users',
+                'minitems' => 0,
+                'maxitems' => 1,
+                'fieldWizard' => [
+                    'selectIcons' => [
+                        'disabled' => false,
+                    ],
+                ],
+            ],
+        ],
     ],
     'types' => [
-        '0' => ['showitem' => 'name'],
+        '0' => ['showitem' => 'name, tutor'],
     ],
 ];
