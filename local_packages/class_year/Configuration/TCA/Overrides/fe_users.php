@@ -31,3 +31,23 @@ defined('TYPO3') or die();
    '',
    'after:password'
 );
+
+//? Record type for Students
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(
+    'fe_users',
+    'tx_extbase_type',
+    [
+        'LLL:EXT:classyear/Resources/Private/Language/locallang.xlf:student', //label 
+        'tx_classyear_domain_model_student' //db value
+    ],
+);
+
+//? Record type for Teachers
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(
+    'fe_users',
+    'tx_extbase_type',
+    [
+        'LLL:EXT:classyear/Resources/Private/Language/locallang.xlf:teacher', //label 
+        'tx_classyear_domain_model_teacher' //db value
+    ],
+);

@@ -6,6 +6,9 @@
          <trans-unit id="student" xml:space="preserve">
             <source>Student</source>
          </trans-unit>
+         <trans-unit id="teacher" xml:space="preserve">
+            <source>Teacher</source>
+         </trans-unit>
          <trans-unit id="classroom" xml:space="preserve">
             <source>Classroom</source>
          </trans-unit>

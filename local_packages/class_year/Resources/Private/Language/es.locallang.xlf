@@ -7,6 +7,10 @@
             <source>Student</source>
             <target>Estudiante</target>
          </trans-unit>
+         <trans-unit id="teacher" xml:space="preserve">
+            <source>Teacher</source>
+            <target>Profesor/a</target>
+         </trans-unit>
          <trans-unit id="classroom" xml:space="preserve">
             <source>Classroom</source>
             <target>Clase</target>
