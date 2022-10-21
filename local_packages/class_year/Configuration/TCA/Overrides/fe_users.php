@@ -6,7 +6,7 @@ defined('TYPO3') or die();
    [
         'tx_classyear_classroom' => [
             'label' => 'LLL:EXT:classyear/Resources/Private/Language/locallang.xlf:classroom',
-            'displayCond' => 'FIELD:tx_extbase_type:=:tx_classyear_domain_model_student',
+            'displayCond' => 'FIELD:tx_extbase_type:=:' . OvanGmbh\ClassYear\Domain\Model\Student::EXTBASE_TYPE,
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
@@ -38,16 +38,6 @@ defined('TYPO3') or die();
     'tx_extbase_type',
     [
         'LLL:EXT:classyear/Resources/Private/Language/locallang.xlf:student', //label 
-        'tx_classyear_domain_model_student' //db value
-    ],
-);
-
-//? Record type for Teachers
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(
-    'fe_users',
-    'tx_extbase_type',
-    [
-        'LLL:EXT:classyear/Resources/Private/Language/locallang.xlf:teacher', //label 
-        'tx_classyear_domain_model_teacher' //db value
+        OvanGmbh\ClassYear\Domain\Model\Student::EXTBASE_TYPE //db value
     ],
 );

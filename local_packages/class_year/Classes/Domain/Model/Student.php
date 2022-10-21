@@ -11,6 +11,7 @@ use TYPO3\CMS\Extbase\Domain\Model\FrontendUser;
  */
 class Student extends FrontendUser
 {
+    const EXTBASE_TYPE = 'tx_classyear_domain_model_student';
 
     /**
     * @var string Student surname

@@ -3,25 +3,45 @@
 namespace OvanGmbh\ClassYear\Controller;
 
 use OvanGmbh\ClassYear\Domain\Repository\StudentRepository;
+use OvanGmbh\ClassYear\Domain\Repository\ClassroomRepository;
+
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
 class StudentController extends ActionController
 {
-    private $studentRepository;
+    /**
+     * @var StudentRepository
+     * @TYPO3\CMS\Extbase\Annotation\Inject
+     */
+    protected $studentRepository;
 
     /**
-     * Inject the student repository
-     *
-     * @param StudentRepository $productRepository
+     * @var ClassroomRepository
+     * @TYPO3\CMS\Extbase\Annotation\Inject
      */
-    public function injectProductRepository(StudentRepository $studentRepository)
-    {
-        $this->studentRepository = $studentRepository;
-    }
+    protected $classroomRepository;
 
-    public function listAction()
+    
+
+    /**
+     * @param int $classroomUid filter students by this class
+     */
+    public function listAction(int $classroomUid = 0)
     {
-        $students = $this->studentRepository->findAll();
+        //? get students
+        if(!empty($this->request->getArguments()['classroomUid'])
+         && ((int)$this->request->getArguments()['classroomUid']) > 0
+        ) {
+            //? students filtered by classroom
+            $students = $this->studentRepository->findByClassroom($classroomUid);
+        } else {
+            //? all students
+            $students = $this->studentRepository->findAllStudents();
+        }
         $this->view->assign('students', $students);
+
+        //? get all classrooms
+        $classrooms = $this->classroomRepository->findAll();
+        $this->view->assign('classrooms', $classrooms);
     }
 }

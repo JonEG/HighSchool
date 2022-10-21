@@ -11,6 +11,7 @@ use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
  */
 class Classroom extends AbstractEntity
 {
+    const EXTBASE_TYPE = 'tx_classyear_domain_model_classroom';
     /**
     * @var string name
     */
