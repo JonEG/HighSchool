@@ -5,21 +5,6 @@
     <f:link.action action="list" arguments="{classroomUid: classroom.uid}">{classroom.name}</f:link.action>
 </f:for>
 
-<table border="1" cellspacing="1" cellpadding="5">
-    <tr>
-        <td>Name</td>
-        <td>Surname</td>
-        <td>Email</td>
-        <td>Class</td>
-    </tr>
-    <f:for each="{students}" as="student">
-        <tr>
-            <td align="top">{student.name}</td>
-            <td align="top">{student.surname}</td>
-            <td align="top">{student.email}</td>
-            <td align="top">{student.classroom.name}</td>
-        </tr>
-    </f:for>
-</table>
+<f:render partial="StudentsTable" arguments="{students: students}"/>
 
 </html>

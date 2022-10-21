@@ -6,6 +6,7 @@ use OvanGmbh\ClassYear\Domain\Repository\StudentRepository;
 use OvanGmbh\ClassYear\Domain\Repository\ClassroomRepository;
 
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
+use TYPO3\CMS\Core\Context\Context;
 
 class StudentController extends ActionController
 {
@@ -19,7 +20,13 @@ class StudentController extends ActionController
      * @var ClassroomRepository
      * @TYPO3\CMS\Extbase\Annotation\Inject
      */
-    protected $classroomRepository;
+     protected $classroomRepository;
+    
+     /**
+     * @var Context
+     * @TYPO3\CMS\Extbase\Annotation\Inject
+     */
+    protected $context;
 
     
 
@@ -43,5 +50,16 @@ class StudentController extends ActionController
         //? get all classrooms
         $classrooms = $this->classroomRepository->findAll();
         $this->view->assign('classrooms', $classrooms);
+    }
+
+    public function classmatesAction()
+    {
+
+        $userId = $this->context->getPropertyFromAspect('frontend.user', 'id');
+        $user = $this->studentRepository->findByUid($userId);
+        $this->view->assign('currentUser', $user);
+
+        $classmates = $this->studentRepository->findByClassroom($user->getClassroom()->getUid());
+        $this->view->assign('classmates', $classmates);
     }
 }
