@@ -6,11 +6,11 @@ defined('TYPO3_MODE') || die('Access denied.');
     'ClassYear',
     'StudentList',
     [
-        \OvanGmbh\ClassYear\Controller\StudentController::class => 'list',
+        \OvanGmbh\ClassYear\Controller\MainController::class => 'list',
     ],
     // non-cacheable actions
     [
-        \OvanGmbh\ClassYear\Controller\StudentController::class => 'list',
+        \OvanGmbh\ClassYear\Controller\MainController::class => 'list',
     ]
 );
 
@@ -18,10 +18,22 @@ defined('TYPO3_MODE') || die('Access denied.');
     'ClassYear',
     'ClassmatesList',
     [
-        \OvanGmbh\ClassYear\Controller\StudentController::class => 'classmates',
+        \OvanGmbh\ClassYear\Controller\MainController::class => 'classmates',
     ],
     // non-cacheable actions
     [
-        \OvanGmbh\ClassYear\Controller\StudentController::class => 'classmates',
+        \OvanGmbh\ClassYear\Controller\MainController::class => 'classmates',
+    ]
+);
+
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
+    'ClassYear',
+    'SubjectsList',
+    [
+        \OvanGmbh\ClassYear\Controller\MainController::class => 'subjects',
+    ],
+    // non-cacheable actions
+    [
+        \OvanGmbh\ClassYear\Controller\MainController::class => 'subjects',
     ]
 );

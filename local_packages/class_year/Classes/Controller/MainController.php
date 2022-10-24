@@ -4,11 +4,12 @@ namespace OvanGmbh\ClassYear\Controller;
 
 use OvanGmbh\ClassYear\Domain\Repository\StudentRepository;
 use OvanGmbh\ClassYear\Domain\Repository\ClassroomRepository;
+use OvanGmbh\ClassYear\Domain\Repository\SubjectRepository;
 
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 use TYPO3\CMS\Core\Context\Context;
 
-class StudentController extends ActionController
+class MainController extends ActionController
 {
     /**
      * @var StudentRepository
@@ -20,7 +21,13 @@ class StudentController extends ActionController
      * @var ClassroomRepository
      * @TYPO3\CMS\Extbase\Annotation\Inject
      */
-     protected $classroomRepository;
+    protected $classroomRepository;
+
+    /**
+     * @var SubjectRepository
+     * @TYPO3\CMS\Extbase\Annotation\Inject
+     */
+    protected $subjectRepository;
     
      /**
      * @var Context
@@ -52,14 +59,32 @@ class StudentController extends ActionController
         $this->view->assign('classrooms', $classrooms);
     }
 
+    /**
+     * Display current user classmates
+     */
     public function classmatesAction()
     {
-
         $userId = $this->context->getPropertyFromAspect('frontend.user', 'id');
         $user = $this->studentRepository->findByUid($userId);
         $this->view->assign('currentUser', $user);
 
         $classmates = $this->studentRepository->findByClassroom($user->getClassroom()->getUid());
         $this->view->assign('classmates', $classmates);
+    }
+
+    /**
+     * Display current user subjects
+     */
+    public function subjectsAction()
+    {
+        $userId = $this->context->getPropertyFromAspect('frontend.user', 'id');
+        $user = $this->studentRepository->findByUid($userId);
+        $this->view->assign('currentUser', $user);
+
+        // $classmates = $this->studentRepository->findByClassroom($user->getClassroom()->getUid());
+        // $this->view->assign('classmates', $classmates);
+
+        $subjects = $this->subjectRepository->findAll();
+        $this->view->assign('subjects', $subjects);
     }
 }

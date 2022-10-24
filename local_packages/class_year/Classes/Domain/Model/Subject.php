@@ -2,20 +2,23 @@
 
 declare (strict_types = 1);
 
-use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
+namespace OvanGmbh\ClassYear\Domain\Model;
 
-class Subject {
+use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
+use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
+
+class Subject extends AbstractEntity {
 
     /**
      * @var string $title 
      */
-    protected string $title;
+    protected $title;
 
     /**
      * @TYPO3\CMS\Extbase\Annotation\ORM\Lazy
-     * @var ObjectStorage classrooms
+     * @var ObjectStorage<Classroom> classrooms
     */
-    protected ObjectStorage $classrooms;
+    protected $classrooms;
 
     /**
      * Get $title
