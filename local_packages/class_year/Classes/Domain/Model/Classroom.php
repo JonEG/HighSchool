@@ -4,6 +4,7 @@ declare(strict_types = 1);
 
 namespace OvanGmbh\ClassYear\Domain\Model;
 
+use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 
 /**
@@ -21,6 +22,12 @@ class Classroom extends AbstractEntity
      * @var Student tutor
      */
     protected $tutor;
+
+    /**
+     * @TYPO3\CMS\Extbase\Annotation\ORM\Lazy
+     * @var ObjectStorage<Subject> subjects
+    */
+    protected $subjects;
 
     /**
      * Get name
@@ -68,5 +75,53 @@ class Classroom extends AbstractEntity
         $this->tutor = $tutor;
 
         return $this;
+    }
+
+    /**
+     * Get subjects
+     *
+     * @return  ObjectStorage
+     */ 
+    public function getSubjects()
+    {
+        return $this->subjects;
+    }
+
+    /**
+     * Set subjects
+     *
+     * @param  ObjectStorage  $subjects  subjects
+     *
+     * @return  self
+     */ 
+    public function setSubjects(ObjectStorage $subjects)
+    {
+        $this->subjects = $subjects;
+
+        return $this;
+    }
+
+    /**
+     * Add subjects
+     *
+     * @param Subject  $subject
+     *
+     * @return void
+     */ 
+    public function addSubject(Subject $subject): void
+    {
+        $this->subjects->attach($subject);
+    }
+
+    /**
+     * Remove subjects
+     *
+     * @param Subject  $subject
+     *
+     * @return void
+     */ 
+    public function removeSubject(Subject $subject): void
+    {
+        $this->subjects->detach($subject);
     }
 }

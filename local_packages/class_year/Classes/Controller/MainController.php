@@ -35,7 +35,6 @@ class MainController extends ActionController
      */
     protected $context;
 
-    
 
     /**
      * @param int $classroomUid filter students by this class
@@ -79,12 +78,6 @@ class MainController extends ActionController
     {
         $userId = $this->context->getPropertyFromAspect('frontend.user', 'id');
         $user = $this->studentRepository->findByUid($userId);
-        $this->view->assign('currentUser', $user);
-
-        // $classmates = $this->studentRepository->findByClassroom($user->getClassroom()->getUid());
-        // $this->view->assign('classmates', $classmates);
-
-        $subjects = $this->subjectRepository->findAll();
-        $this->view->assign('subjects', $subjects);
+        $this->view->assign('userClassroom', $user->getClassroom());
     }
 }

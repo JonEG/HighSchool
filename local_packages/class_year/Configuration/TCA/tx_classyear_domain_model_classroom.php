@@ -33,8 +33,19 @@ return [
                 ],
             ],
         ],
+        'subjects' => [
+            'label' => 'Subjects taught in this classroom',
+            'config' => [
+               'type' => 'group',
+               'internal_type' => 'db',
+               'allowed' => 'tx_classyear_domain_model_subject',
+               'foreign_table' => 'tx_classyear_domain_model_subject',
+               'MM' => 'tx_classyear_mm_classroom_subject',
+               'MM_opposite_field' => 'classrooms',
+            ]
+        ]
     ],
     'types' => [
-        '0' => ['showitem' => 'name, tutor'],
+        '0' => ['showitem' => 'name, tutor, subjects'],
     ],
 ];

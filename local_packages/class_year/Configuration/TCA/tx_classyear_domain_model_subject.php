@@ -20,7 +20,7 @@ return [
                'internal_type' => 'db',
                'allowed' => 'tx_classyear_domain_model_classroom',
                'foreign_table' => 'tx_classyear_domain_model_classroom',
-               'MM' => 'tx_classyear_mm_one_rel_classroom_subject',
+               'MM' => 'tx_classyear_mm_classroom_subject',
             ]
         ]
     ],
