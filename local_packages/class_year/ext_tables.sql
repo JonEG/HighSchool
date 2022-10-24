@@ -9,6 +9,20 @@ CREATE TABLE tx_classyear_domain_model_classroom (
 
 CREATE TABLE tx_classyear_domain_model_subject (
   title varchar(255) DEFAULT '' NOT NULL,
+  classrooms int(11) DEFAULT '0' NOT NULL,
+);
+
+/**
+* TABLE RELATIONSHIP MANY TO MANY
+* ? One sided many to many relation
+*/
+CREATE TABLE tx_classyear_mm_one_rel_classroom_subject (
+    uid_local int(10) unsigned DEFAULT NULL,
+    uid_foreign int(10) unsigned DEFAULT NULL,
+    sorting int(11) DEFAULT '0' NOT NULL,
+
+    KEY uid_local (uid_local),
+    KEY uid_foreign (uid_foreign)
 );
 
 /**

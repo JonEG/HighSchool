@@ -12,6 +12,9 @@
          <trans-unit id="classroom" xml:space="preserve">
             <source>Classroom</source>
          </trans-unit>
+         <trans-unit id="subject" xml:space="preserve">
+            <source>Subject</source>
+         </trans-unit>
          <trans-unit id="name" xml:space="preserve">
             <source>Name</source>
          </trans-unit>

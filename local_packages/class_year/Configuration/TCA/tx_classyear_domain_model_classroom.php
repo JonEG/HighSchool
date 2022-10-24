@@ -7,14 +7,14 @@ return [
     ],
     'columns' => [
         'name' => [
-            'name' => 'LLL:EXT:classyear/Resources/Private/Language/locallang.xlf:name',
+            'label' => 'LLL:EXT:classyear/Resources/Private/Language/locallang.xlf:name',
             'config' => [
                 'type' => 'text',
                 'eval' => 'trim',
             ],
         ],
         'tutor' => [
-            'tutor' => 'LLL:EXT:classyear/Resources/Private/Language/locallang.xlf:tutor',
+            'label' => 'LLL:EXT:classyear/Resources/Private/Language/locallang.xlf:tutor',
             'config' => [
                 'type' => 'select',
                 'default' => null,
