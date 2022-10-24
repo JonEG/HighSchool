@@ -15,3 +15,20 @@ languages:
     flag: us
 rootPageId: 1
 routes: {  }
+
+routeEnhancers:
+  ListClassroomStudents:
+    type: Extbase
+    extension: ClassYear
+    plugin: StudentList
+    routes:
+      - routePath: '/filter/{classroomUid}'
+        _controller: 'Main::list'
+    #     _arguments:
+    #       classroomUid: 'classroom'
+    # aspects:
+    #   classroomUid:
+    #     type: PersistedAliasMapper
+    #     tableName: 'tx_classyear_domain_model_classroom'
+    #     routeFieldName: 'name'
+    #     routeValuePrefix: '/'
