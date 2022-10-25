@@ -3,6 +3,7 @@
 */
 CREATE TABLE tx_classyear_domain_model_classroom (
   name varchar(255) DEFAULT '' NOT NULL,
+  slug varchar(255) DEFAULT '' NOT NULL,
   tutor int(10) unsigned DEFAULT NULL,
   subjects int(11) DEFAULT '0' NOT NULL,
   FOREIGN KEY (tutor) REFERENCES fe_users(uid)

@@ -37,14 +37,15 @@ class MainController extends ActionController
 
 
     /**
-     * @param int $classroomUid filter students by this class
+     * List students
+     * can be filtered with argument 'classroom' 
      */
-    public function listAction(int $classroomUid = 0)
+    public function listAction()
     {
         //? get students
-        if(!empty($this->request->getArguments()['classroomUid'])
-         && ((int)$this->request->getArguments()['classroomUid']) > 0
-        ) {
+        $classroomUid = $this->request->getArguments()['classroomUid'];
+        
+        if(!empty($classroomUid) && ((int) $classroomUid) > 0) {
             //? students filtered by classroom
             $students = $this->studentRepository->findByClassroom($classroomUid);
         } else {

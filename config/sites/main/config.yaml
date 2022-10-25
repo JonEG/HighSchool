@@ -21,14 +21,24 @@ routeEnhancers:
     type: Extbase
     extension: ClassYear
     plugin: StudentList
+    defaultController: 'Main::list'
+    defaults:
+      classroomUid: '-1'
     routes:
-      - routePath: '/filter/{classroomUid}'
+      - routePath: '/{classroom_name}/{classroomUid}'
         _controller: 'Main::list'
-    #     _arguments:
-    #       classroomUid: 'classroom'
-    # aspects:
-    #   classroomUid:
-    #     type: PersistedAliasMapper
-    #     tableName: 'tx_classyear_domain_model_classroom'
-    #     routeFieldName: 'name'
-    #     routeValuePrefix: '/'
+    aspects:
+      classroomUid:
+        type: PersistedPatternMapper
+        tableName: 'tx_classyear_domain_model_classroom'
+        routeFieldPattern: '^(?P<slug>.+)'
+        routeFieldResult: "{slug}"
+      # to translate /filter/ into different languages
+      classroom_name:
+        type: LocaleModifier
+        default: 'classroom'
+        localeMap:
+          - locale: 'en_EN.*'
+            value: 'classroom'
+          - locale: 'es_ES.*'
+            value: 'clase'

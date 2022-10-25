@@ -9,9 +9,25 @@ return [
         'name' => [
             'label' => 'LLL:EXT:classyear/Resources/Private/Language/locallang.xlf:name',
             'config' => [
-                'type' => 'text',
-                'eval' => 'trim',
+                'type' => 'input',
+                'eval' => 'trim, unique',
+                'required' => true,
             ],
+        ],
+        'slug' => [
+            'label' => 'Slug',
+            'config' => [
+                'type' => 'slug',
+                'generatorOptions' => [
+                    'fields' => ['name'],
+                    'replacements' => [
+                        '/' => ''
+                    ],
+                ],
+                'fallbackCharacter' => '-',
+                'eval' => 'uniqueInSite',
+                'default' => ''
+            ]
         ],
         'tutor' => [
             'label' => 'LLL:EXT:classyear/Resources/Private/Language/locallang.xlf:tutor',
@@ -46,6 +62,6 @@ return [
         ]
     ],
     'types' => [
-        '0' => ['showitem' => 'name, tutor, subjects'],
+        '0' => ['showitem' => 'name, slug, tutor, subjects'],
     ],
 ];

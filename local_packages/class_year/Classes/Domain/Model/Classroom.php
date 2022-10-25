@@ -17,6 +17,11 @@ class Classroom extends AbstractEntity
     * @var string name
     */
     protected $name;
+    
+    /**
+    * @var string slug
+    */
+    protected $slug;
 
     /**
      * @var Student tutor
@@ -123,5 +128,29 @@ class Classroom extends AbstractEntity
     public function removeSubject(Subject $subject): void
     {
         $this->subjects->detach($subject);
+    }
+
+    /**
+     * Get slug
+     *
+     * @return  string
+     */ 
+    public function getSlug()
+    {
+        return $this->slug;
+    }
+
+    /**
+     * Set slug
+     *
+     * @param  string  $slug  slug
+     *
+     * @return  self
+     */ 
+    public function setSlug(string $slug)
+    {
+        $this->slug = $slug;
+
+        return $this;
     }
 }
