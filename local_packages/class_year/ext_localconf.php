@@ -37,3 +37,15 @@ defined('TYPO3_MODE') || die('Access denied.');
         \OvanGmbh\ClassYear\Controller\MainController::class => 'subjects',
     ]
 );
+
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
+    'ClassYear',
+    'JsonPlugin',
+    [
+        \OvanGmbh\ClassYear\Controller\JsonController::class => 'listClassrooms, showClassroom',
+    ],
+    // non-cacheable actions
+    [
+        \OvanGmbh\ClassYear\Controller\JsonController::class => 'listClassrooms, showClassroom',
+    ]
+);

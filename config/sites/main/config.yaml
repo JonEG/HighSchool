@@ -42,3 +42,18 @@ routeEnhancers:
             value: 'classroom'
           - locale: 'es_ES.*'
             value: 'clase'
+  JsonPlug:
+    type: Extbase
+    extension: ClassYear
+    plugin: JsonPlugin
+    routes:
+      - routePath: '/api/classes'
+        _controller: 'Json::listClassrooms'
+      - routePath: '/api/classrooms/{classroomUid}'
+        _controller: 'Json::showClassroom'
+  PageTypeSuffix:
+      type: PageType
+      index: 'index'
+      map:
+        'rss.feed': 13
+        '.json': 26

@@ -21,3 +21,18 @@ plugin.tx_classyear{
         storagePid = {$plugin.tx_classyear.persistence.storagePid}
     }
 }
+
+api_json = PAGE
+api_json {
+  config {
+    disableAllHeaderCode = 1
+    additionalHeaders {
+      10 {
+        header = Content-Type: application/json
+        replace = 1
+      }
+    }
+  }
+  typeNum = 26
+  10 < tt_content.list.20.classyear_jsonplugin
+}
