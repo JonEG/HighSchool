@@ -33,6 +33,12 @@ class Classroom extends AbstractEntity
      * @var ObjectStorage<Subject> subjects
     */
     protected $subjects;
+    
+    /**
+     * @TYPO3\CMS\Extbase\Annotation\ORM\Lazy
+     * @var ObjectStorage<Student> subjects
+    */
+    protected $students;
 
     /**
      * Get name
@@ -119,7 +125,7 @@ class Classroom extends AbstractEntity
     }
 
     /**
-     * Remove subjects
+     * Remove Subjects
      *
      * @param Subject  $subject
      *
@@ -128,6 +134,54 @@ class Classroom extends AbstractEntity
     public function removeSubject(Subject $subject): void
     {
         $this->subjects->detach($subject);
+    }
+    
+    /**
+     * Get students
+     *
+     * @return ObjectStorage<Student>
+     */ 
+    public function getStudents()
+    {
+        return $this->students;
+    }
+
+    /**
+     * Set students
+     *
+     * @param  ObjectStorage<Student>  $students  students
+     *
+     * @return  self
+     */ 
+    public function setStudents(ObjectStorage $students)
+    {
+        $this->students = $students;
+
+        return $this;
+    }
+
+    /**
+     * Add students
+     *
+     * @param Student  $student
+     *
+     * @return void
+     */ 
+    public function addStudent(Student $student): void
+    {
+        $this->students->attach($student);
+    }
+
+    /**
+     * Remove students
+     *
+     * @param Student  $student
+     *
+     * @return void
+     */ 
+    public function removeStudent(Student $student): void
+    {
+        $this->students->detach($student);
     }
 
     /**

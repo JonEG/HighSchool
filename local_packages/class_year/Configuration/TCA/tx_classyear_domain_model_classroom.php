@@ -59,9 +59,21 @@ return [
                'MM' => 'tx_classyear_mm_classroom_subject',
                'MM_opposite_field' => 'classrooms',
             ]
+        ],
+        'students' => [
+            'exclude' => true, //prevents everyone but admins from editing 
+            'label' => 'Students in this classroom',
+            'config' => [
+                'readOnly' => true, //prohibits editing for everyone
+                'type' => 'group',
+                'internal_type' => 'db',
+                'allowed' => 'fe_users',
+                'foreign_table' => 'fe_users',
+                'foreign_field' => 'tx_classyear_classroom', //child field that points to parent
+            ]
         ]
     ],
     'types' => [
-        '0' => ['showitem' => 'name, slug, tutor, subjects'],
+        '0' => ['showitem' => 'name, slug, tutor, subjects, students'],
     ],
 ];

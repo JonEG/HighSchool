@@ -37,24 +37,8 @@ class JsonController extends ActionController {
      */
     public function listClassroomsAction() {
         //? Customize json output
-        $this->view->setConfiguration([
-            'classrooms' => [
-                '_descendAll' => [
-                    '_exclude' => [
-                        'pid',
-                        'slug',
-                    ],
-                    '_descend' => [
-                        'tutor' => [
-                            '_only' => ['surname']
-                        ],
-                        'subjects' => [
-                            '_descendAll' => [
-                                '_only' => ['title'] 
-                            ]
-                        ]
-                    ],
-                ],
+        $this->view->setConfiguration(['classrooms' => [
+                '_descendAll' => MyJsonConfigurations::CLASS_CONTENT
             ],
         ]);
         //? Set allowed vars
@@ -70,28 +54,43 @@ class JsonController extends ActionController {
      */
     public function showClassroomAction(int $classroomUid) {
         //? Customize json output
-        $this->view->setConfiguration([
-            'classroom' => [
-                '_exclude' => [
-                    'pid',
-                    'slug',
-                ],
-                '_descend' => [
-                    'tutor' => [
-                        '_only' => ['surname']
-                    ],
-                    'subjects' => [
-                        '_descendAll' => [
-                            '_only' => ['title'] 
-                        ]
-                    ]
-                ],
-            ],
-        ]);
+        $this->view->setConfiguration(['classroom' => MyJsonConfigurations::CLASS_CONTENT]);
         //? Set allowed vars
         $this->view->setVariablesToRender(['classroom']);
 
         $classroom = $this->classroomRepository->findByUid($classroomUid);
         $this->view->assign('classroom', $classroom);
     }
+}
+
+class MyJsonConfigurations
+{
+    /**
+     * _descendAll: get all array properties for an element
+     * _descend: enter these persistent object properties
+     * _exclude: exclude these properties
+     * _only: get only these properties
+     * 
+     */
+    const CLASS_CONTENT = [
+        '_exclude' => [
+            'pid',
+            'slug',
+        ],
+        '_descend' => [
+            'tutor' => [
+                '_only' => ['surname']
+            ],
+            'subjects' => [
+                '_descendAll' => [
+                    '_only' => ['title'] 
+                ]
+            ],
+            'students' => [
+                '_descendAll' => [
+                    '_only' => ['surname'] 
+                ]
+            ]
+        ],
+    ];
 }
