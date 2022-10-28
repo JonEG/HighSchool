@@ -19,6 +19,14 @@
             <source>Subject</source>
             <target>Asignatura</target>
          </trans-unit>
+         <trans-unit id="exam" xml:space="preserve">
+            <source>Exam</source>
+            <target>Examen</target>
+         </trans-unit>
+         <trans-unit id="exam.question" xml:space="preserve">
+            <source>Question</source>
+            <target>Pregunta</target>
+         </trans-unit>
          <trans-unit id="name" xml:space="preserve">
             <source>Name</source>
             <target>Nombre</target>

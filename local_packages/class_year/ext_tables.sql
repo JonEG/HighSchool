@@ -15,6 +15,19 @@ CREATE TABLE tx_classyear_domain_model_subject (
   classrooms int(11) DEFAULT '0' NOT NULL,
 );
 
+CREATE TABLE tx_classyear_domain_model_exam (
+  title varchar(255) DEFAULT '' NOT NULL,
+  date varchar(255) DEFAULT '' NOT NULL,
+  classroom int(10) unsigned DEFAULT NULL,
+  subject int(10) unsigned DEFAULT NULL,
+  questions varchar(255) DEFAULT '' NOT NULL,
+);
+
+CREATE TABLE tx_classyear_domain_model_examquestion (
+  title varchar(255) DEFAULT '' NOT NULL,
+  correct_answer INT DEFAULT NULL,
+);
+
 /**
 * TABLE RELATIONSHIP MANY TO MANY
 * ? Two sided many to many relation
