@@ -5,6 +5,7 @@ namespace OvanGmbh\ClassYear\Controller;
 use OvanGmbh\ClassYear\Domain\Repository\StudentRepository;
 use OvanGmbh\ClassYear\Domain\Repository\ClassroomRepository;
 use OvanGmbh\ClassYear\Domain\Repository\SubjectRepository;
+use OvanGmbh\ClassYear\Domain\Model\Classroom;
 
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 use TYPO3\CMS\Core\Context\Context;
@@ -35,19 +36,29 @@ class MainController extends ActionController
      */
     protected $context;
 
-
-    /**
-     * List students
-     * can be filtered with argument 'classroom' 
-     */
-    public function listAction()
+    public function initializeListAction()
     {
         //? get students
         $classroomUid = $this->request->getArguments()['classroomUid'];
         
         if(!empty($classroomUid) && ((int) $classroomUid) > 0) {
             //? students filtered by classroom
-            $students = $this->studentRepository->findByClassroom($classroomUid);
+            $classroom = $this->classroomRepository->findByUid($classroomUid);
+
+            $this->request->setArgument('classroom', $classroom);
+        }
+    }
+
+
+    /**
+     * List students
+     * can be filtered with argument 'classroom'
+     */
+    public function listAction(?Classroom $classroom = null)
+    {
+        if(!empty($classroom)) {
+            //? students filtered by classroom
+            $students = $classroom->getStudents();
         } else {
             //? all students
             $students = $this->studentRepository->findAllStudents();
