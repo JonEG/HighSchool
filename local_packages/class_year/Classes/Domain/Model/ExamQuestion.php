@@ -1,10 +1,13 @@
 <?php 
 
-declare(strict_type =1);
+declare(strict_types =1);
 
 namespace OvanGmbh\ClassYear\Domain\Model;
 
-class ExamQuestion 
+use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
+
+
+class ExamQuestion extends AbstractEntity
 {
     /**
      * @var string title

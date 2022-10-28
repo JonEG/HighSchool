@@ -22,6 +22,15 @@ plugin.tx_classyear{
     }
 }
 
+page {
+  includeJSFooter {
+    helloworld = EXT:classyear/Resources/Public/JavaScript/helloworld.js
+  }
+}
+
+/**
+* json responses
+*/
 api_json = PAGE
 api_json {
   config {

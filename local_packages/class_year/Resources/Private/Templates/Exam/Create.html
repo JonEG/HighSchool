@@ -1,0 +1,37 @@
+<p>CREATE EXAMS HERE</p>
+
+<f:debug>{examExample}</f:debug>
+
+<f:form action="create" object="{exam}" objectName="newExam">
+  <div>
+    <label for="title">Title</label>
+    <f:form.textfield property="title" required="true" />
+  </div>
+  <div>
+    <label for="date">Date</label>
+    <f:form.textfield property="date" type="date" required="true" />
+  </div>
+  <div>
+    <label for="classroom">Classroom</label>
+    <f:form.select property="classroom">
+      <f:for each="{classrooms}" as="classroom">
+        <f:variable name="subjectsList" value=""/>
+        <f:for each="{classroom.subjects}" as="subject">
+          <f:if condition="{subjectsList} != ''">
+            <f:then>
+              <f:variable name="subjectsList" value="{subjectsList},{subject.uid}"/>
+            </f:then>
+            <f:else>
+              <f:variable name="subjectsList" value="{subject.uid}"/>
+            </f:else>
+          </f:if>
+        </f:for>      
+          <f:form.select.option data="{'subject-uids': subjectsList}" value="{classroom.uid}">{classroom.name}</f:form.select.option>
+      </f:for>
+    </f:form.select>
+  </div>
+  <div>
+    <label for="subject">Subject</label>
+    <f:form.select property="subject" options="{subjects}" optionLabelField="title" optionValueField="uid"  prependOptionLabel="Please select" />
+  </div>
+</f:form>

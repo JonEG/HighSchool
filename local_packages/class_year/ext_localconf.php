@@ -40,6 +40,18 @@ defined('TYPO3_MODE') || die('Access denied.');
 
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
     'ClassYear',
+    'ExamsCRUD',
+    [
+        \OvanGmbh\ClassYear\Controller\ExamController::class => 'create',
+    ],
+    // non-cacheable actions
+    [
+        \OvanGmbh\ClassYear\Controller\ExamController::class => 'create',
+    ]
+);
+
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
+    'ClassYear',
     'JsonPlugin',
     [
         \OvanGmbh\ClassYear\Controller\JsonController::class => 'listClassrooms, showClassroom',
