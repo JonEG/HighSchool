@@ -1,17 +1,15 @@
 <p>CREATE EXAMS HERE</p>
 
-<f:debug>{examExample}</f:debug>
-
-<f:form action="create" object="{exam}" objectName="newExam">
-  <div>
+<f:form class="create-exam-form" action="create" objectName="newExam">
+  <div class="create-exam-form__title">
     <label for="title">Title</label>
     <f:form.textfield property="title" required="true" />
   </div>
-  <div>
+  <div class="create-exam-form__date">
     <label for="date">Date</label>
-    <f:form.textfield property="date" type="date" required="true" />
+    <f:form.textfield  property="date" type="date" required="true" />
   </div>
-  <div>
+  <div class="create-exam-form__classroom">
     <label for="classroom">Classroom</label>
     <f:form.select property="classroom">
       <f:for each="{classrooms}" as="classroom">
@@ -30,8 +28,23 @@
       </f:for>
     </f:form.select>
   </div>
-  <div>
+  <div class="create-exam-form__subject">
     <label for="subject">Subject</label>
     <f:form.select property="subject" options="{subjects}" optionLabelField="title" optionValueField="uid"  prependOptionLabel="Please select" />
   </div>
+  <div class="create-exam-form__questions">
+    <label for="questions">Questions</label>
+    <button class="create-exam-form__questions__add" type="button">+</button>
+    <div class="create-exam-form__question" hidden>
+      <f:form.textfield property="questions"/>
+      <label> True 
+        <f:form.radio property="questions" value="1"/>
+      </label>
+      <label> False 
+        <f:form.radio property="questions" value="0"> false </f:form.radio>
+      </label>
+      <button class="create-exam-form__questions__remove" type="button">-</button>
+    </div>
+  </div>
+  <f:form.submit value="Create" />
 </f:form>

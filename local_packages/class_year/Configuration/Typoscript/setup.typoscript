@@ -24,7 +24,7 @@ plugin.tx_classyear{
 
 page {
   includeJSFooter {
-    helloworld = EXT:classyear/Resources/Public/JavaScript/helloworld.js
+    createExam = EXT:classyear/Resources/Public/JavaScript/create-exam.js
   }
 }
 
