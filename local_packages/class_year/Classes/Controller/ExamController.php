@@ -5,9 +5,9 @@ namespace OvanGmbh\ClassYear\Controller;
 use OvanGmbh\ClassYear\Domain\Model\Exam;
 use OvanGmbh\ClassYear\Domain\Model\ExamQuestion;
 use OvanGmbh\ClassYear\Domain\Repository\ExamRepository;
+use OvanGmbh\ClassYear\Domain\Repository\ExamQuestionRepository;
 use OvanGmbh\ClassYear\Domain\Repository\ClassroomRepository;
 use OvanGmbh\ClassYear\Domain\Repository\SubjectRepository;
-use OvanGmbh\ClassYear\TypeConverter\ClassroomConverter;
 
 
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
@@ -37,16 +37,16 @@ class ExamController extends ActionController
     protected $propertyMappingConfigurationBuilder;
     
     /**
-     * @var ClassroomConverter
-     * @TYPO3\CMS\Extbase\Annotation\Inject
-     */
-    protected $classroomConverter;
-    
-    /**
      * @var ExamRepository
      * @TYPO3\CMS\Extbase\Annotation\Inject
      */
     protected $examRepository;
+    
+    /**
+     * @var ExamQuestionRepository
+     * @TYPO3\CMS\Extbase\Annotation\Inject
+     */
+    protected $examQuestionRepository;
     
     /**
      * @var ClassroomRepository
@@ -65,23 +65,47 @@ class ExamController extends ActionController
      */
     public function initializeCreateAction()
     {
+        //map exam
         if($this->request->hasArgument('newExam')){
             $exam = $this->request->getArgument('newExam');
+            $mappedExam = $this->propertyMapper->convert($exam, Exam::class);
+            // $this->request->setArgument('newExam', $mappedExam);
+        }
+        //map exam questions
+        if($this->request->hasArgument('questions')){
+            $questions = $this->request->getArgument('questions');
 
-            $mappedType = $this->propertyMapper->convert($exam, Exam::class, $propertyMappingConfiguration);
-            // var_dump($mappedType);
+            
+            $mappedQuestions = [];
+            foreach($questions as $question){
+                $mappedQuestions[] = $this->propertyMapper->convert($question, ExamQuestion::class);
+            }
+            
+            $this->request->setArgument('questions', $mappedQuestions);
         }
     }
 
     /**
     * Create an exam
-     */
-    public function createAction(?Exam $newExam = null) {
+    */
+    public function createAction(?Exam $newExam = null, array $questions = []) {
         $classrooms = $this->classroomRepository->findAll();
         $this->view->assign('classrooms', $classrooms);
         
         $subjects = $this->subjectRepository->findAll();
         $this->view->assign('subjects', $subjects);
+
+        if($newExam){
+            if(!empty($questions)){
+                foreach ($questions as $key => $question) {
+                    //persist questions
+                    $this->examQuestionRepository->add($question);
+                }
+                $newExam->setQuestions($questions);
+            }
+            //persist exam
+            $this->examRepository->add($newExam);
+        }
     }
 
     public function errorAction(){

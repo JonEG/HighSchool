@@ -11,7 +11,7 @@
   </div>
   <div class="create-exam-form__classroom">
     <label for="classroom">Classroom</label>
-    <f:form.select property="classroom">
+    <f:form.select property="classroom"  prependOptionLabel="Please select">
       <f:for each="{classrooms}" as="classroom">
         <f:variable name="subjectsList" value=""/>
         <f:for each="{classroom.subjects}" as="subject">
@@ -36,12 +36,12 @@
     <label for="questions">Questions</label>
     <button class="create-exam-form__questions__add" type="button">+</button>
     <div class="create-exam-form__question" hidden>
-      <f:form.textfield property="questions"/>
+      <f:form.textfield name="questions"/>
       <label> True 
-        <f:form.radio property="questions" value="1"/>
+        <f:form.radio name="questions" value="1"/>
       </label>
       <label> False 
-        <f:form.radio property="questions" value="0"> false </f:form.radio>
+        <f:form.radio name="questions" value="0"> false </f:form.radio>
       </label>
       <button class="create-exam-form__questions__remove" type="button">-</button>
     </div>
