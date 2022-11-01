@@ -11,11 +11,13 @@ class Exam extends AbstractEntity
 {
     /**
      * @var string title
+     * @\TYPO3\CMS\Extbase\Annotation\Validate("\TYPO3\CMS\Extbase\Validation\Validator\AlphanumericValidator")
      */
     protected $title = '';
 
     /**
      * @var ?string date epoch
+     * @\TYPO3\CMS\Extbase\Annotation\Validate("\OvanGmbh\ClassYear\Domain\Validator\DateRangeValidator")
      */
     protected ?string $date = null;
 

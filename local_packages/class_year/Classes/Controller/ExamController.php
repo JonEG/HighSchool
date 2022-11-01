@@ -109,6 +109,5 @@ class ExamController extends ActionController
     }
 
     public function errorAction(){
-        var_dump('errorAction');
     }
 }
