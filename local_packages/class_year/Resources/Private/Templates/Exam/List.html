@@ -1,0 +1,29 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid=”true”>
+
+<div>
+  <h1>Exam's list</h1>
+</div>
+<div>
+  <f:link.action action="form">New exam</f:link.action>
+</div>
+
+<table border="1" cellspacing="1" cellpadding="5">
+  <tr>
+      <td>Date</td>
+      <td>Title</td>
+      <td>Course</td>
+      <td>Subject</td>
+      <td></td>
+  </tr>
+  <f:for each="{exams}" as="exam">
+      <tr>
+          <td align="top">{exam.date}</td>
+          <td align="top">{exam.title}</td>
+          <td align="top">{exam.classroom.name}</td>
+          <td align="top">{exam.subject.title}</td>
+          <td>
+            <f:link.action action="form" arguments="{exam: exam}">Edit exam</f:link.action>
+          </td>
+      </tr>
+  </f:for>
+</table>

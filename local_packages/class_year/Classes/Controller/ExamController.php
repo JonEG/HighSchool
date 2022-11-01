@@ -13,8 +13,8 @@ use OvanGmbh\ClassYear\Domain\Repository\SubjectRepository;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 use TYPO3\CMS\Core\Context\Context;
 use TYPO3\CMS\Extbase\Property\PropertyMapper;
-use TYPO3\CMS\Extbase\Property\PropertyMappingConfigurationBuilder;
 use TYPO3\CMS\Extbase\Property\TypeConverter\PersistentObjectConverter;
+use TYPO3\CMS\Extbase\Persistence\Generic\PersistenceManager;
 
 class ExamController extends ActionController
 {
@@ -31,10 +31,10 @@ class ExamController extends ActionController
     protected $propertyMapper;
     
     /**
-     * @var PropertyMappingConfigurationBuilder
+     * @var PersistenceManager
      * @TYPO3\CMS\Extbase\Annotation\Inject
      */
-    protected $propertyMappingConfigurationBuilder;
+    protected $persistenceManager;
     
     /**
      * @var ExamRepository
@@ -61,6 +61,69 @@ class ExamController extends ActionController
     protected $subjectRepository;
 
     /**
+    * Lists all exams
+    */
+    public function listAction(){
+        $exams = $this->examRepository->findAll();
+        $this->view->assign('exams', $exams);
+    }
+
+
+    /**
+    * Create an exam
+    */
+    public function formAction() {
+        $classrooms = $this->classroomRepository->findAll();
+        $this->view->assign('classrooms', $classrooms);
+        
+        $subjects = $this->subjectRepository->findAll();
+        $this->view->assign('subjects', $subjects);
+
+        //check if exam to edit was received
+        if($this->request->hasArgument('exam')){
+            $examUid = $this->request->getArgument('exam');
+            $exam = $this->examRepository->findByUid($examUid);
+            $this->view->assign('examToEdit', $exam);
+        }
+
+        //check if notification error 
+        if($this->request->hasArgument('failedExam')){
+            $this->view->assign('failedExam', true);
+        }
+        //check if notification success
+        if($this->request->hasArgument('succededExam')){
+            $examTitle = $this->request->getArgument('succededExam');
+            $this->view->assign('succededExam', $examTitle);
+        }
+    }
+
+    /**
+    * Edit an exam
+    */
+    public function initializeEditAction()
+    {
+        //map exam
+        if($this->request->hasArgument('newExam')){
+            $exam = $this->request->getArgument('newExam');
+            $mappedExam = $this->propertyMapper->convert($exam, Exam::class);
+            // $this->request->setArgument('newExam', $mappedExam);
+        }
+        //map exam questions
+        if($this->request->hasArgument('questions')){
+            $questions = $this->request->getArgument('questions');
+
+            $mappedQuestions = [];
+            foreach($questions as $question){
+                $mappedQuestions[] = $this->propertyMapper->convert($question, ExamQuestion::class);
+            }
+            
+            $this->request->setArgument('questions', $mappedQuestions);
+        }
+    }
+
+    public function editAction(?Exam $newExam = null, array $questions = []){}
+
+    /**
     * Create an exam
      */
     public function initializeCreateAction()
@@ -75,7 +138,6 @@ class ExamController extends ActionController
         if($this->request->hasArgument('questions')){
             $questions = $this->request->getArgument('questions');
 
-            
             $mappedQuestions = [];
             foreach($questions as $question){
                 $mappedQuestions[] = $this->propertyMapper->convert($question, ExamQuestion::class);
@@ -89,11 +151,7 @@ class ExamController extends ActionController
     * Create an exam
     */
     public function createAction(?Exam $newExam = null, array $questions = []) {
-        $classrooms = $this->classroomRepository->findAll();
-        $this->view->assign('classrooms', $classrooms);
-        
-        $subjects = $this->subjectRepository->findAll();
-        $this->view->assign('subjects', $subjects);
+        $redirectArguments = [];
 
         if($newExam){
             if(!empty($questions)){
@@ -105,16 +163,13 @@ class ExamController extends ActionController
             }
             //persist exam
             $this->examRepository->add($newExam);
-            $this->view->assign('newExamCreated', $newExam);
+            $redirectArguments['succededExam'] = $newExam->getTitle();
         }
-
-        if($this->request->hasArgument('creationError')){
-            $this->view->assign('creationError', true);
-
-        }
+        
+        $this->redirect('form',null, null, $redirectArguments);
     }
 
     public function errorAction(){
-        $this->redirect('create',null, null, ['creationError' => true]);
+        $this->redirect('form',null, null, ['failedExam' => true]);
     }
 }

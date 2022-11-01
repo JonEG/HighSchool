@@ -1,0 +1,69 @@
+<f:if condition="{examToEdit} == null">
+  <f:then>
+    <f:variable name="formAction" value="create"/>
+  </f:then>
+  <f:else>
+    <f:variable name="formAction" value="edit"/>
+  </f:else>
+</f:if>
+
+<f:form class="exam-form" action="{formAction}" object="{examToEdit}"objectName="newExam">
+  <div class="exam-form__title">
+    <label for="title">Title</label>
+    <f:form.textfield property="title" required="true" />
+  </div>
+  <div class="exam-form__date">
+    <label for="date">Date</label>
+    <f:form.textfield  property="date" type="date" required="true" />
+  </div>
+  <div class="exam-form__classroom">
+    <label for="classroom">Classroom</label>
+    <f:form.select property="classroom"  prependOptionLabel="Please select">
+      <f:for each="{classrooms}" as="classroom">
+        <f:variable name="subjectsList" value=""/>
+        <f:for each="{classroom.subjects}" as="subject">
+          <f:if condition="{subjectsList} != ''">
+            <f:then>
+              <f:variable name="subjectsList" value="{subjectsList},{subject.uid}"/>
+            </f:then>
+            <f:else>
+              <f:variable name="subjectsList" value="{subject.uid}"/>
+            </f:else>
+          </f:if>
+        </f:for>      
+          <f:form.select.option data="{'subject-uids': subjectsList}" value="{classroom.uid}">{classroom.name}</f:form.select.option>
+      </f:for>
+    </f:form.select>
+  </div>
+  <div class="exam-form__subject">
+    <label for="subject">Subject</label>
+    <f:form.select property="subject" options="{subjects}" optionLabelField="title" optionValueField="uid"  prependOptionLabel="Please select" />
+  </div>
+  <div class="exam-form__questions">
+    <label for="questions">Questions</label>
+    <button class="exam-form__questions__add" type="button">+</button>
+    <div class="exam-form__question" hidden>
+      <f:form.textfield name="questions" class="exam-form__question_title"/>
+      <label> True 
+        <f:form.radio name="questions" class="exam-form__question_answer" value="1"/>
+      </label>
+      <label> False 
+        <f:form.radio name="questions" class="exam-form__question_answer" value="0"/>
+      </label>
+      <button class="exam-form__questions__remove" type="button">-</button>
+    </div>
+    <f:for each="{examToEdit.questions}" as="question" iteration="iterator">
+      <div class="exam-form__question">
+        <f:form.textfield property="questions.{iterator.index}.title" value="{question.title}"/>
+          <label> True 
+            <f:form.radio property="questions.{iterator.index}.correctAnswer" checked="1 == {question.correctAnswer}" value="1"/>
+          </label>
+          <label> False 
+            <f:form.radio property="questions.{iterator.index}.correctAnswer" checked="0 == {question.correctAnswer}" value="0"/>
+          </label>
+          <button class="exam-form__questions__remove" type="button">-</button>
+      </div>
+    </f:for>    
+  </div>
+  <f:form.submit value="{formAction}" />
+</f:form>

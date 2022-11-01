@@ -23,31 +23,38 @@ if(classroomSelectors.length > 0 && subjectSelectors.length > 0){
   });
 }
 
+//On load, add remove to existing buttons
+document.querySelectorAll('.exam-form__question button')?.forEach((element)=> {
+  element.addEventListener("click", (event) => {
+    event.target.closest(".exam-form__question").remove()
+  })
+})
+
 
 // initialize question creation login
-const addQuestionButton = document.querySelector(".create-exam-form__questions__add")
-const newQuestionTemplate = document.querySelector(".create-exam-form__question")
-const questionsDiv = document.querySelector(".create-exam-form__questions")
+const addQuestionButton = document.querySelector(".exam-form__questions__add")
+const newQuestionTemplate = document.querySelector(".exam-form__question")
+const questionsDiv = document.querySelector(".exam-form__questions")
 
 addQuestionButton?.addEventListener("click", () => {
   const newQuestion = newQuestionTemplate.cloneNode(true)
   newQuestion.hidden = false
 
-  const questionNumber = document.querySelectorAll(".create-exam-form__question").length - 1
+  const questionNumber = document.querySelectorAll(".exam-form__question").length - 1
   //rename title
-  const titleElement = newQuestion.querySelector("input[type='text']")
-  titleElement.name = titleElement.getAttribute("name") + `[${questionNumber}][title]`
+  const titleElement = newQuestion.querySelector(".exam-form__question_title")
+  titleElement.name += `[${questionNumber}][title]`
 
   //rename radioButtons
-  const radioElements = newQuestion.querySelectorAll("input[type='radio']")
+  const radioElements = newQuestion.querySelectorAll(".exam-form__question_answer")
   radioElements.forEach((element) => {
-    element.name = element.getAttribute("name") + `[${questionNumber}][correctAnswer]`
+    element.name += `[${questionNumber}][correctAnswer]`;
   })
 
   //set deleting button
   newQuestion.querySelector("button").addEventListener("click", (event) => {
     const targetElement = event.target || event.srcElement
-    targetElement.closest(".create-exam-form__question").remove()
+    targetElement.closest(".exam-form__question").remove()
   })
 
   questionsDiv.append(newQuestion);

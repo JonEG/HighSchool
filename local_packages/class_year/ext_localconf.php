@@ -42,11 +42,11 @@ defined('TYPO3_MODE') || die('Access denied.');
     'ClassYear',
     'ExamsCRUD',
     [
-        \OvanGmbh\ClassYear\Controller\ExamController::class => 'create',
+        \OvanGmbh\ClassYear\Controller\ExamController::class => 'list, form, create, edit',
     ],
     // non-cacheable actions
     [
-        \OvanGmbh\ClassYear\Controller\ExamController::class => 'create',
+        \OvanGmbh\ClassYear\Controller\ExamController::class => 'list, form, create, edit',
     ]
 );
 

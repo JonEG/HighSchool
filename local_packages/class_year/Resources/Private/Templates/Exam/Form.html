@@ -1,0 +1,19 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid=”true”>
+
+<h1>Exam's creator</h1>
+
+<f:render 
+  partial="ExamForm"
+  arguments="{classrooms: classrooms, subjects: subjects, examToEdit: examToEdit}"
+/>
+
+<f:if condition="{succededExam}">
+  <div class="creation-notification" style="position:fixed;top:10px;right:10px;padding:10px;background-color:greenyellow;border:1px solid green;">
+   Successfully created: {succededExam}
+  </div>
+</f:if>
+<f:if condition="{failedExam}">
+  <div class="error-notification" style="position:fixed;top:10px;right:10px;padding:10px;background-color:lightcoral;border:1px solid red;">
+   PROCESS FAILED
+  </div>
+</f:if>
