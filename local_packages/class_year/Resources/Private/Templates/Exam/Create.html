@@ -48,3 +48,13 @@
   </div>
   <f:form.submit value="Create" />
 </f:form>
+<f:if condition="{newExamCreated}">
+  <div class="creation-notification" style="position:fixed;top:10px;right:10px;padding:10px;background-color:greenyellow;border:1px solid green;">
+   new exam {newExamCreated.title}
+  </div>
+</f:if>
+<f:if condition="{creationError}">
+  <div class="error-notification" style="position:fixed;top:10px;right:10px;padding:10px;background-color:lightcoral;border:1px solid red;">
+   PROCESS FAILED
+  </div>
+</f:if>

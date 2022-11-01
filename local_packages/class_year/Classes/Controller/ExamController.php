@@ -105,9 +105,16 @@ class ExamController extends ActionController
             }
             //persist exam
             $this->examRepository->add($newExam);
+            $this->view->assign('newExamCreated', $newExam);
+        }
+
+        if($this->request->hasArgument('creationError')){
+            $this->view->assign('creationError', true);
+
         }
     }
 
     public function errorAction(){
+        $this->redirect('create',null, null, ['creationError' => true]);
     }
 }
