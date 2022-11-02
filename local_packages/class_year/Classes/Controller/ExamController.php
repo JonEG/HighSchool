@@ -77,7 +77,7 @@ class ExamController extends ActionController
 
 
     /**
-    * Create an exam
+    * Create an exam form
     */
     public function formAction() {
         $classrooms = $this->classroomRepository->findAll();
@@ -87,20 +87,28 @@ class ExamController extends ActionController
         $this->view->assign('subjects', $subjects);
 
         //check if exam to edit was received
-        if($this->request->hasArgument('exam')){
-            $examUid = $this->request->getArgument('exam');
+        if($this->request->hasArgument('editExam')){
+            $examUid = $this->request->getArgument('editExam');
             $exam = $this->examRepository->findByUid($examUid);
             $this->view->assign('examToEdit', $exam);
         }
 
+        //check if exam to delete was received
+        if($this->request->hasArgument('removeExam')){
+            $examUid = $this->request->getArgument('removeExam');
+            $exam = $this->examRepository->findByUid($examUid);
+            $this->examRepository->remove($exam);
+            $this->redirect('list');
+        }
+
         //check if notification error 
-        if($this->request->hasArgument('failedExam')){
-            $this->view->assign('failedExam', true);
+        if($this->request->hasArgument('failed')){
+            $this->view->assign('failed', true);
         }
         //check if notification success
-        if($this->request->hasArgument('succededExam')){
-            $examTitle = $this->request->getArgument('succededExam');
-            $this->view->assign('succededExam', $examTitle);
+        if($this->request->hasArgument('succeded')){
+            $examTitle = $this->request->getArgument('succeded');
+            $this->view->assign('succeded', $examTitle);
         }
     }
 
@@ -157,7 +165,7 @@ class ExamController extends ActionController
             }
             //persist exam
             $this->examRepository->update($newExam);
-            $redirectArguments['succededExam'] = $newExam->getTitle();
+            $redirectArguments['succeded'] = $newExam->getTitle();
         }
         
         $this->redirect('form',null, null, $redirectArguments);
@@ -204,13 +212,13 @@ class ExamController extends ActionController
             }
             //persist exam
             $this->examRepository->add($newExam);
-            $redirectArguments['succededExam'] = $newExam->getTitle();
+            $redirectArguments['succeded'] = $newExam->getTitle();
         }
         
         $this->redirect('form',null, null, $redirectArguments);
     }
 
     public function errorAction(){
-        $this->redirect('form',null, null, ['failedExam' => true]);
+        $this->redirect('form',null, null, ['failed' => true]);
     }
 }

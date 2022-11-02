@@ -13,7 +13,7 @@
       <td>Title</td>
       <td>Course</td>
       <td>Subject</td>
-      <td></td>
+      <td>Actions</td>
   </tr>
   <f:for each="{exams}" as="exam">
       <tr>
@@ -22,7 +22,8 @@
           <td align="top">{exam.classroom.name}</td>
           <td align="top">{exam.subject.title}</td>
           <td>
-            <f:link.action action="form" arguments="{exam: exam}">Edit exam</f:link.action>
+            <f:link.action action="form" arguments="{editExam: exam}">Edit</f:link.action>
+            <f:link.action action="form" arguments="{removeExam: exam}">Remove</f:link.action>
           </td>
       </tr>
   </f:for>

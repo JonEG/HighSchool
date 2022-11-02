@@ -1,12 +1,3 @@
-<f:if condition="{examToEdit} == null">
-  <f:then>
-    <f:variable name="formAction" value="create"/>
-  </f:then>
-  <f:else>
-    <f:variable name="formAction" value="edit"/>
-  </f:else>
-</f:if>
-
 <f:form class="exam-form" action="{formAction}" object="{examToEdit}"objectName="newExam">
   <div class="exam-form__title">
     <label for="title">Title</label>
