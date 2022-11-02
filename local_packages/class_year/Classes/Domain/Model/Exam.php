@@ -11,7 +11,6 @@ class Exam extends AbstractEntity
 {
     /**
      * @var string title
-     * @\TYPO3\CMS\Extbase\Annotation\Validate("\TYPO3\CMS\Extbase\Validation\Validator\AlphanumericValidator")
      */
     protected $title = '';
 
@@ -41,8 +40,6 @@ class Exam extends AbstractEntity
     public function initializeObject(){
         $this->questions = new ObjectStorage();
     }
-
-
 
     /**
      * Get title
@@ -162,5 +159,29 @@ class Exam extends AbstractEntity
         $this->questions = $questions;
 
         return $this;
+    }
+
+    /**
+     * Add questions
+     *
+     * @param ExamQuestion  $question
+     *
+     * @return void
+     */ 
+    public function addQuestion(ExamQuestion $question): void
+    {
+        $this->questions->attach($question);
+    }
+
+    /**
+     * Remove questions
+     *
+     * @param ExamQuestion  $question
+     *
+     * @return void
+     */ 
+    public function removeQuestion(ExamQuestion $question): void
+    {
+        $this->questions->detach($question);
     }
 }

@@ -13,6 +13,7 @@ use OvanGmbh\ClassYear\Domain\Repository\SubjectRepository;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 use TYPO3\CMS\Core\Context\Context;
 use TYPO3\CMS\Extbase\Property\PropertyMapper;
+use TYPO3\CMS\Extbase\Property\PropertyMappingConfigurationBuilder;
 use TYPO3\CMS\Extbase\Property\TypeConverter\PersistentObjectConverter;
 use TYPO3\CMS\Extbase\Persistence\Generic\PersistenceManager;
 
@@ -29,6 +30,12 @@ class ExamController extends ActionController
      * @TYPO3\CMS\Extbase\Annotation\Inject
      */
     protected $propertyMapper;
+    
+    /**
+     * @var PropertyMappingConfigurationBuilder
+     * @TYPO3\CMS\Extbase\Annotation\Inject
+     */
+    protected $propertyMappingConfigurationBuilder;
     
     /**
      * @var PersistenceManager
@@ -102,16 +109,30 @@ class ExamController extends ActionController
     */
     public function initializeEditAction()
     {
-        //map exam
+        //map exam 
         if($this->request->hasArgument('newExam')){
             $exam = $this->request->getArgument('newExam');
-            $mappedExam = $this->propertyMapper->convert($exam, Exam::class);
-            // $this->request->setArgument('newExam', $mappedExam);
-        }
-        //map exam questions
-        if($this->request->hasArgument('questions')){
-            $questions = $this->request->getArgument('questions');
+            // remove desired stored questions
+            //! WE MUST REMOVE IDENTITIES FROM ELEMENTS TO BE DELETED, 
+            //! TO AVOID MAPPING FROM ASSUMING IT SHOULD ADD THEM BACK
+            foreach ($exam['questions'] as $key => $value) {
+                if(count($value) == 1 && !empty($value['__identity'])){
+                    unset($exam['questions'][$key]);
+                    //! WE UPDATE THE ARGUMENT SO THAT QUESTIONS DO NOT CONTAIN IDS FOR THE MAPPING.
+                    $this->request->setArgument('newExam', $exam); 
+                }
+            }
 
+            $propertyMappingConfiguration = $this->propertyMappingConfigurationBuilder->build();
+            $propertyMappingConfiguration->forProperty('questions.*')->setTypeConverterOption(PersistentObjectConverter::class, PersistentObjectConverter::CONFIGURATION_MODIFICATION_ALLOWED, true);
+            $propertyMappingConfiguration->forProperty('questions.*')->allowAllProperties();
+
+            $mappedExam = $this->propertyMapper->convert($exam, Exam::class, $propertyMappingConfiguration);
+
+        }
+        //map new exam questions
+        $questions = $this->request->getArguments()['questions'];
+        if(!empty($questions)){
             $mappedQuestions = [];
             foreach($questions as $question){
                 $mappedQuestions[] = $this->propertyMapper->convert($question, ExamQuestion::class);
@@ -121,7 +142,26 @@ class ExamController extends ActionController
         }
     }
 
-    public function editAction(?Exam $newExam = null, array $questions = []){}
+    public function editAction(?Exam $newExam = null, array $questions = [])
+    {
+        $redirectArguments = [];
+
+        if($newExam){
+            if(!empty($questions)){
+                foreach ($questions as $key => $question) {
+                    //persist questions
+                    $this->examQuestionRepository->add($question);
+                    //add to exam
+                    $newExam->addQuestion($question);
+                }
+            }
+            //persist exam
+            $this->examRepository->update($newExam);
+            $redirectArguments['succededExam'] = $newExam->getTitle();
+        }
+        
+        $this->redirect('form',null, null, $redirectArguments);
+    }
 
     /**
     * Create an exam
@@ -135,8 +175,8 @@ class ExamController extends ActionController
             // $this->request->setArgument('newExam', $mappedExam);
         }
         //map exam questions
-        if($this->request->hasArgument('questions')){
-            $questions = $this->request->getArgument('questions');
+        $questions = $this->request->getArguments()['questions'];
+        if(!empty($questions)) {
 
             $mappedQuestions = [];
             foreach($questions as $question){
@@ -159,6 +199,7 @@ class ExamController extends ActionController
                     //persist questions
                     $this->examQuestionRepository->add($question);
                 }
+                //add to exam
                 $newExam->setQuestions($questions);
             }
             //persist exam
