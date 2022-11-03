@@ -36,6 +36,9 @@
          <trans-unit id="extension.title" xml:space="preserve">
             <source>My Class Year</source>
          </trans-unit>
+         <trans-unit id="highschool" xml:space="preserve">
+            <source>Highschool</source>
+         </trans-unit>
       </body>
    </file>
 </xliff>

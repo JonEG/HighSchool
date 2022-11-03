@@ -1,6 +1,6 @@
 <xliff version="1.0"
    xmlns:t3="http://typo3.org/schemas/xliff">
-   <file source-language="en" target-language="en" datatype="plaintext" original="messages" product-name="classyear">
+   <file source-language="en" target-language="es" datatype="plaintext" original="messages" product-name="classyear">
       <header/>
       <body>
          <trans-unit id="student" xml:space="preserve">
@@ -46,6 +46,10 @@
          <trans-unit id="extension.title" xml:space="preserve">
             <source>My Class Year</source>
             <target>Año Escolar</target>
+         </trans-unit>
+         <trans-unit id="highschool" xml:space="preserve">
+            <source>Highschool</source>
+            <target>Instituto</target>
          </trans-unit>
       </body>
    </file>

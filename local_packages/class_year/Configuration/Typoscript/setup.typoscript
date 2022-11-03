@@ -1,4 +1,4 @@
-plugin.tx_classyear{
+plugin.tx_classyear {
     view {
         templateRootPaths {
             0 = EXT:classyear/Resources/Private/Templates/
@@ -44,4 +44,29 @@ api_json {
   }
   typeNum = 26
   10 < tt_content.list.20.classyear_jsonplugin
+}
+
+
+module.tx_classyear {
+  view {
+    templateRootPaths {
+      0 = EXT:classyear/Resources/Private/Templates/
+      //? we are referencing to this constant value in constant.typoscript
+      1 = {$plugin.tx_classyear.view.templateRootPath}
+    }
+    partialRootPaths {
+      0 = EXT:classyear/Resources/Private/Partials/
+      //? we are referencing to this constant value in constant.typoscript
+      1 = {$plugin.tx_classyear.view.partialRootPath}
+    }
+    layoutRootPaths {
+      0 = EXT:classyear/Resources/Private/Layouts/
+      //? we are referencing to this constant value in constant.typoscript
+      1 = {$plugin.tx_classyear.view.layoutRootPath}
+    }
+  }
+  persistence {
+    //? we are referencing to this constant value in constant.typoscript
+    storagePid = {$plugin.tx_classyear.persistence.storagePid}
+  }
 }

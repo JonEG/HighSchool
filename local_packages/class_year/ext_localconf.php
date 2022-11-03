@@ -61,3 +61,10 @@ defined('TYPO3_MODE') || die('Access denied.');
         \OvanGmbh\ClassYear\Controller\JsonController::class => 'listClassrooms, showClassroom',
     ]
 );
+
+$iconRegistry = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Imaging\IconRegistry::class);
+$iconRegistry->registerIcon(
+    'mod-highschool',
+    \TYPO3\CMS\Core\Imaging\IconProvider\BitmapIconProvider::class,
+    ['source' => 'EXT:classyear/Resources/Public/Icons/Extension.png']
+);

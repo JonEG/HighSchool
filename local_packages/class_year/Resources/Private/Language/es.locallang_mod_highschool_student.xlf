@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.0" xmlns:t3="http://typo3.org/schemas/xliff">
+   <file source-language="en" target-language="es" datatype="plaintext" original="EXT:ClassYear/Resources/Private/Language/locallang_mod_highschool_student.xlf" product-name="student">
+      <header/>
+      <body>
+      <trans-unit id="mlang_labels_tablabel" resname="mlang_labels_tablabel">
+				<source>Student</source>
+				<target>Estudiante</target>
+			</trans-unit>
+			<trans-unit id="mlang_labels_tabdescr" resname="mlang_labels_tabdescr">
+				<source>This module will be used to manage highschool students.</source>
+				<target>Este modulo gestiona a los estudiantes.</target>
+			</trans-unit>
+			<trans-unit id="mlang_tabs_tab" resname="mlang_tabs_tab">
+				<source>STUDENT</source>
+				<target>ESTUDIANTE</target>
+			</trans-unit>
+      </body>
+   </file>
+</xliff>
