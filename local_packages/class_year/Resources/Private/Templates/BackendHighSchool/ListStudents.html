@@ -1,0 +1,35 @@
+<f:layout name="BackendHighSchool" />
+
+<f:section name="headline">
+  <h1>
+    <f:translate
+    key="LLL:EXT:classyear/Resources/Private/Language/locallang.xlf:student"
+    default="No translation available."
+    />
+  </h1>
+</f:section>
+
+<f:section name="content">
+  <table border="1" cellspacing="1" cellpadding="5">
+    <tr>
+        <td>Uid</td>
+        <td>Name</td>
+        <td>Surname</td>
+        <td>Email</td>
+        <td>Class</td>
+        <td></td>
+    </tr>
+    <f:for each="{students}" as="student">
+          <tr>
+              <td align="top">{student.uid}</td>
+              <td align="top">{student.name}</td>
+              <td align="top">{student.surname}</td>
+              <td align="top">{student.email}</td>
+              <td align="top">{student.classroom.name}</td>
+              <td>
+                <f:link.action action="recoveryEmail" arguments="{'student': student}">Send Recovery Email</f:link.action>
+              </td>
+          </tr>
+    </f:for>
+  </table>
+</f:section>

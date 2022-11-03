@@ -19,7 +19,7 @@
     'tx_highschool_students', //submodule key
     'top',
     [
-        \OvanGmbh\ClassYear\Controller\BackendHighschoolController::class => '',
+        \OvanGmbh\ClassYear\Controller\BackendHighschoolController::class => 'listStudents, recoveryEmail',
     ],
     [
         'access' => 'admin',
