@@ -65,7 +65,7 @@ class BackendHighschoolController extends ActionController
     public function recoveryEmailAction (?Student $student = null)
     {
         $this->email
-            ->to(new Address('j.echevestegonzalez@gmail.com', 'Jonny'))
+            ->to(new Address($student->getEmail(), $student->getName()))
             ->subject('Recover your password')
             ->format('both'); // send HTML and plaintext mail
         $this->mailer->send($this->email);
