@@ -12,7 +12,6 @@
 <f:section name="content">
   <table border="1" cellspacing="1" cellpadding="5">
     <tr>
-        <td>Uid</td>
         <td>Name</td>
         <td>Surname</td>
         <td>Email</td>
@@ -21,13 +20,12 @@
     </tr>
     <f:for each="{students}" as="student">
           <tr>
-              <td align="top">{student.uid}</td>
               <td align="top">{student.name}</td>
               <td align="top">{student.surname}</td>
               <td align="top">{student.email}</td>
               <td align="top">{student.classroom.name}</td>
               <td>
-                <f:link.action action="recoveryEmail" arguments="{'student': student}">Send Recovery Email</f:link.action>
+                <f:link.action action="writeEmail" arguments="{'email': student.email}">Send Email</f:link.action>
               </td>
           </tr>
     </f:for>
