@@ -41,7 +41,8 @@ class BackendHighschoolController extends ActionController
     public function initializeView(ViewInterface $view)
     {
         if ($view instanceof BackendTemplateView) {
-            $view->getModuleTemplate()->getPageRenderer()->loadRequireJsModule('TYPO3/CMS/Core/Ajax/AjaxRequest');
+
+            $view->getModuleTemplate()->getPageRenderer()->loadRequireJsModule('TYPO3/CMS/Classyear/highschool');
         }
     }
 
