@@ -4,13 +4,30 @@
       <td>Surname</td>
       <td>Email</td>
       <td>Class</td>
+      <td>Saiyajin Level</td>
   </tr>
   <f:for each="{students}" as="student">
       <tr>
-          <td align="top">{student.name}</td>
-          <td align="top">{student.surname}</td>
-          <td align="top">{student.email}</td>
-          <td align="top">{student.classroom.name}</td>
+        <td align="top">{student.name}</td>
+        <td align="top">{student.surname}</td>
+        <td align="top">{student.email}</td>
+        <td align="top">{student.classroom.name}</td>
+        <td align="top">
+        <f:variable name="categoryTitle" value="" />
+        <f:for each="{studentsCategories}" as="category">
+            <f:if condition="{student.uid} == {category.uid_foreign}">
+                <f:variable name="categoryTitle" value="{category.title}" />
+            </f:if>
+        </f:for>
+        <f:if condition="{categoryTitle} != ''">
+            <f:then>
+                {categoryTitle}
+            </f:then>
+            <f:else>
+                Unknown
+            </f:else>
+        </f:if>
+          </td>
       </tr>
   </f:for>
 </table>

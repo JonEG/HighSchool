@@ -1,6 +1,13 @@
 <?php
 defined('TYPO3') or die();
 
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::makeCategorizable(
+    'classyear',
+    'fe_users',
+);
+
+//TODO choose categories and load values
+
 //? Add some fields to fe_users table to show TCA fields definitions
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('fe_users',
    [

@@ -5,10 +5,12 @@ namespace OvanGmbh\ClassYear\Controller;
 use OvanGmbh\ClassYear\Domain\Repository\StudentRepository;
 use OvanGmbh\ClassYear\Domain\Repository\ClassroomRepository;
 use OvanGmbh\ClassYear\Domain\Repository\SubjectRepository;
+use OvanGmbh\ClassYear\Domain\Repository\MyCategoryRepository;
 use OvanGmbh\ClassYear\Domain\Model\Classroom;
 
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 use TYPO3\CMS\Core\Context\Context;
+
 
 class MainController extends ActionController
 {
@@ -29,6 +31,11 @@ class MainController extends ActionController
      * @TYPO3\CMS\Extbase\Annotation\Inject
      */
     protected $subjectRepository;
+    /**
+     * @var MyCategoryRepository
+     * @TYPO3\CMS\Extbase\Annotation\Inject
+     */
+    protected $categoryRepository;
     
      /**
      * @var Context
@@ -81,6 +88,15 @@ class MainController extends ActionController
 
         $classmates = $this->studentRepository->findByClassroom($user->getClassroom()->getUid());
         $this->view->assign('classmates', $classmates);
+
+        $classmatesUids = [];
+        foreach ($classmates as $classmate) {
+            $classmatesUids[] = $classmate->getUid();
+        }
+
+        $categories = $this->categoryRepository->findStudentCategories($classmatesUids);
+        $this->view->assign('categories', $categories);
+
     }
 
     /**
