@@ -20,6 +20,7 @@
     'top',
     [
         \OvanGmbh\ClassYear\Controller\BackendHighschoolController::class => 'listStudents, writeEmail, sendEmail',
+        \OvanGmbh\ClassYear\Controller\StudentAjaxController::class => 'doSomething',
     ],
     [
         'access' => 'admin',

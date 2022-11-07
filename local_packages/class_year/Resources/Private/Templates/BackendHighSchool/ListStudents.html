@@ -23,7 +23,9 @@
               <td align="top">{student.name}</td>
               <td align="top">{student.surname}</td>
               <td align="top">{student.email}</td>
-              <td align="top">{student.classroom.name}</td>
+              <td align="top">
+                  <f:form.select name="studentClassroom" data="{'student-uid' : student.uid}" options="{classrooms}" optionLabelField="name" optionValueField="uid" value="{student.classroom.uid}"/>
+              </td>
               <td>
                 <f:link.action action="writeEmail" arguments="{'email': student.email}">Send Email</f:link.action>
               </td>

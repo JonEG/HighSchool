@@ -6,6 +6,7 @@ namespace OvanGmbh\ClassYear\Controller;
 
 use OvanGmbh\ClassYear\Domain\Model\Student;
 use OvanGmbh\ClassYear\Domain\Repository\StudentRepository;
+use OvanGmbh\ClassYear\Domain\Repository\ClassroomRepository;
 use Symfony\Component\Mime\Address;
 use TYPO3\CMS\Backend\View\BackendTemplateView;
 use TYPO3\CMS\Core\Mail\FluidEmail;
@@ -26,10 +27,14 @@ class BackendHighschoolController extends ActionController
 
     /**
      * @param StudentRepository $studentRepository
+     * @param ClassroomRepository $classroomRepository
+     * @param FluidEmail $email
+     * @param Mailer $mailer
      */
-    public function __construct(StudentRepository $studentRepository, FluidEmail $email, Mailer $mailer)
+    public function __construct(StudentRepository $studentRepository, ClassroomRepository $classroomRepository, FluidEmail $email, Mailer $mailer)
     {
         $this->studentRepository = $studentRepository;
+        $this->classroomRepository = $classroomRepository;
         $this->email = $email;
         $this->mailer = $mailer;
     }
@@ -41,7 +46,7 @@ class BackendHighschoolController extends ActionController
     public function initializeView(ViewInterface $view)
     {
         if ($view instanceof BackendTemplateView) {
-
+            $view->getModuleTemplate()->getPageRenderer()->loadRequireJsModule('TYPO3/CMS/Core/Ajax/AjaxRequest');
             $view->getModuleTemplate()->getPageRenderer()->loadRequireJsModule('TYPO3/CMS/Classyear/highschool');
         }
     }
@@ -50,6 +55,9 @@ class BackendHighschoolController extends ActionController
     {
         $students = $this->studentRepository->findAll();
         $this->view->assign('students', $students);
+        
+        $classrooms = $this->classroomRepository->findAll();
+        $this->view->assign('classrooms', $classrooms);
     }
 
     /**
