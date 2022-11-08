@@ -1,6 +1,4 @@
-console.log("ARABIAN NIGHTS")
-
-require(['TYPO3/CMS/Core/Ajax/AjaxRequest'], function (AjaxRequest) {
+require(['TYPO3/CMS/Core/Ajax/AjaxRequest','TYPO3/CMS/Backend/Notification'], function (AjaxRequest, Notification) {
   document.querySelectorAll("select").forEach((element) => {
     element.addEventListener('change', (event) => {
       const select = event.target
@@ -14,11 +12,11 @@ require(['TYPO3/CMS/Core/Ajax/AjaxRequest'], function (AjaxRequest) {
           const resolved = await data.resolve();
           switch (data.response.status) {
             case 200:
-              alert(resolved.message);
+              Notification.success('Success', resolved.message);
               break;
             case 400:
             case 500:
-              alert(resolved.message);
+              Notification.error('Error', resolved.message);
               break;
             default:
               break;
