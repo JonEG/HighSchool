@@ -54,3 +54,10 @@
     'textmedia',
     'after'
 );
+
+// //? Include static file for classyear_randomimage content element in the backoffice
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::registerPageTSConfigFile(
+    'classyear',
+    'Configuration/TSConfig/Page/Mod/Wizards/NewContentElement.tsconfig',
+    'TT Random Image'
+);

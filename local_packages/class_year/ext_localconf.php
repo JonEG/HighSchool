@@ -75,7 +75,3 @@ $iconRegistry->registerIcon(
     \TYPO3\CMS\Core\Imaging\IconProvider\BitmapIconProvider::class,
     ['source' => 'EXT:classyear/Resources/Public/Icons/Homero.png']
 );
-
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig(
-    '<INCLUDE_TYPOSCRIPT: source="FILE:EXT:classyear/Configuration/TsConfig/Page/Mod/Wizards/NewContentElement.tsconfig">'
-);
