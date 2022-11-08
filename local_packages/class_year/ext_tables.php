@@ -3,7 +3,7 @@
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addModule(
     'highschool',
     '',
-    'top',
+    'bottom',
     null,
     [
         'labels' => 'LLL:EXT:classyear/Resources/Private/Language/locallang_mod_highschool.xlf',

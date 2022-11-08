@@ -1,0 +1,14 @@
+mod.wizards.newContentElement.wizardItems.common {
+  elements {
+    classyear_randomimage {
+      iconIdentifier = tt-random-image-icon
+      title = Random Image
+      description = This will have a random image
+      tt_content_defValues {
+        CType = classyear_randomimage
+      }
+    }
+  }
+  show := addToList(classyear_randomimage)
+}
+
