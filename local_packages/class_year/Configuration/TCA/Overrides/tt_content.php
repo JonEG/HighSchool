@@ -39,25 +39,4 @@
     'EXT:classyear/Resources/Public/Icons/Extension.png'  // pluginIcon
 );
 
-//? add to Includes list on the backoffice
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile('classyear','Configuration/Typoscript','ClassYear');
 
-//? New Content element Type
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(
-    'tt_content',
-    'CType',
-    [
-        'Random Image', //label 
-        'classyear_randomimage', //content element key
-        'tt-random-image-icon' //icon identifier
-    ],
-    'textmedia',
-    'after'
-);
-
-// //? Include static file for classyear_randomimage content element in the backoffice
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::registerPageTSConfigFile(
-    'classyear',
-    'Configuration/TSConfig/Page/Mod/Wizards/NewContentElement.tsconfig',
-    'TT Random Image'
-);

@@ -48,3 +48,7 @@ CREATE TABLE fe_users (
   tx_classyear_classroom int(10) unsigned DEFAULT NULL,
   FOREIGN KEY (tx_classyear_classroom) REFERENCES tx_classyear_domain_model_classroom(uid)
 );
+
+CREATE TABLE tt_content (
+    tx_classyear_random_image_url varchar(225) DEFAULT '' NOT NULL,
+);

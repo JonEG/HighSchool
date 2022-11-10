@@ -1,0 +1,7 @@
+services:
+  # cache needs to be cleaned everytime we change this file
+  OvanGmbh\ClassYear\EventListener\DocumentSave:
+    tags:
+      - name: event.listener
+        identifier: 'afterDocumentSave'
+        event: TYPO3\CMS\Backend\Controller\Event\AfterFormEnginePageInitializedEvent
