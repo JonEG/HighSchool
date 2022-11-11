@@ -28,7 +28,8 @@
         'config' => [
             'type' => 'input',
             'renderType' => 'inputLink',
-            'default' => 'https://random.imagecdn.app/__height__/__width__',
+            'default' => 'https://random.imagecdn.app',
+            'readOnly' => true
         ],
     ],
 ]);

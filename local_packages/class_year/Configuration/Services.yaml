@@ -1,4 +1,9 @@
 services:
+  _defaults:
+      autowire: true
+      autoconfigure: true
+      public: false
+
   # cache needs to be cleaned everytime we change this file
   OvanGmbh\ClassYear\EventListener\DocumentSave:
     tags:
