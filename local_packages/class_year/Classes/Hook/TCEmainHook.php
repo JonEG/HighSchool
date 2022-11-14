@@ -15,42 +15,42 @@ class TCEmainHook
      */
     public function processDatamap_preProcessFieldArray(array&$fieldArray, $table, $id, \TYPO3\CMS\Core\DataHandling\DataHandler&$pObj)
     {
-        // $id_to_be_created = str_contains(strval($id), 'NEW');
-        $is_valid_url = filter_var($fieldArray['tx_classyear_random_image_url'], FILTER_VALIDATE_URL);
-        if($is_valid_url) {
-            $requestFactory = GeneralUtility::makeInstance(RequestFactoryInterface::class);
-            $uriInterface = GeneralUtility::makeInstance(UriFactoryInterface::class);
-            //create url
-            $url_parts = preg_split("/\//", $fieldArray['tx_classyear_random_image_url']);
-            $url_origin_parts = array_slice($url_parts, 0, 3);
-            $clean_url = implode('/',$url_origin_parts);
-            $url = $clean_url . '/' . $fieldArray['imageheight']. '/' . $fieldArray['imagewidth'];
+        // // $id_to_be_created = str_contains(strval($id), 'NEW');
+        // $is_valid_url = filter_var($fieldArray['tx_classyear_random_image_url'], FILTER_VALIDATE_URL);
+        // if($is_valid_url) {
+        //     $requestFactory = GeneralUtility::makeInstance(RequestFactoryInterface::class);
+        //     $uriInterface = GeneralUtility::makeInstance(UriFactoryInterface::class);
+        //     //create url
+        //     $url_parts = preg_split("/\//", $fieldArray['tx_classyear_random_image_url']);
+        //     $url_origin_parts = array_slice($url_parts, 0, 3);
+        //     $clean_url = implode('/',$url_origin_parts);
+        //     $url = $clean_url . '/' . $fieldArray['imageheight']. '/' . $fieldArray['imagewidth'];
 
-            $options = array(
-                CURLOPT_RETURNTRANSFER => true,   // return web page
-                // CURLOPT_HEADER         => false,  // don't return headers
-                CURLOPT_FOLLOWLOCATION => true,   // follow redirects
-                CURLOPT_MAXREDIRS      => 10,     // stop after 10 redirects
-                CURLOPT_ENCODING       => "",     // handle compressed
-                // CURLOPT_USERAGENT      => "test", // name of client
-                CURLOPT_AUTOREFERER    => true,   // set referrer on redirect
-                CURLOPT_CONNECTTIMEOUT => 6,    // time-out on connect
-                CURLOPT_TIMEOUT        => 6,    // time-out on response
-            ); 
+        //     $options = array(
+        //         CURLOPT_RETURNTRANSFER => true,   // return web page
+        //         // CURLOPT_HEADER         => false,  // don't return headers
+        //         CURLOPT_FOLLOWLOCATION => true,   // follow redirects
+        //         CURLOPT_MAXREDIRS      => 10,     // stop after 10 redirects
+        //         CURLOPT_ENCODING       => "",     // handle compressed
+        //         // CURLOPT_USERAGENT      => "test", // name of client
+        //         CURLOPT_AUTOREFERER    => true,   // set referrer on redirect
+        //         CURLOPT_CONNECTTIMEOUT => 6,    // time-out on connect
+        //         CURLOPT_TIMEOUT        => 6,    // time-out on response
+        //     ); 
         
-            $curl = curl_init($url);
-            curl_setopt_array($curl, $options);
+        //     $curl = curl_init($url);
+        //     curl_setopt_array($curl, $options);
         
-            $content = curl_exec($curl);
+        //     $content = curl_exec($curl);
 
-            //get last redirected url
-            $redirected_url = curl_getinfo($curl, CURLINFO_EFFECTIVE_URL);
+        //     //get last redirected url
+        //     $redirected_url = curl_getinfo($curl, CURLINFO_EFFECTIVE_URL);
         
-            curl_close($curl);
+        //     curl_close($curl);
 
-            if($redirected_url){
-                $fieldArray['tx_classyear_random_image_url'] = $redirected_url;
-            }
-        }
+        //     if($redirected_url){
+        //         $fieldArray['tx_classyear_random_image_url'] = $redirected_url;
+        //     }
+        // }
     }
 }
