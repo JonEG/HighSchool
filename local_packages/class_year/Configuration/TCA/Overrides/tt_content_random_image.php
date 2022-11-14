@@ -16,7 +16,7 @@
 //? Include static file for classyear_randomimage content element in the backoffice
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::registerPageTSConfigFile(
     'classyear',
-    'Configuration/TSConfig/Page/Mod/Wizards/NewContentElement.tsconfig',
+    'Configuration/TSConfig/Page/Mod/Wizards/RandomImageContentElement.tsconfig',
     'TT Random Image'
 );
 
@@ -28,8 +28,8 @@
         'config' => [
             'type' => 'input',
             'renderType' => 'inputLink',
-            'default' => 'https://random.imagecdn.app',
-            'readOnly' => true
+            'default' => 'https://picsum.photos',
+            'readOnly' => false
         ],
     ],
 ]);

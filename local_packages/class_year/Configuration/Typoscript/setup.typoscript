@@ -70,3 +70,15 @@ module.tx_classyear {
     storagePid = {$plugin.tx_classyear.persistence.storagePid}
   }
 }
+
+//? Content elements
+lib.contentElement {
+  templateRootPaths.200 = EXT:classyear/Resources/Private/Templates/ContentElements
+}
+
+tt_content {
+  classyear_randomimage =< lib.contentElement
+  classyear_randomimage {
+    templateName = RandomImage
+  }
+}

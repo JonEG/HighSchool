@@ -17,52 +17,51 @@ class RandomImageMiddleware implements MiddlewareInterface
 {
     public function process(ServerRequestInterface $request, RequestHandlerInterface $handler): ResponseInterface
     {
-        $document = $request->getParsedBody()['data']['tt_content'];
-        if(!is_array($document)) return $handler->handle($request); //pass to next middleware
+        // $document = $request->getParsedBody()['data']['tt_content'];
+        // if(!is_array($document)) return $handler->handle($request); //pass to next middleware
 
-        foreach ($document as $id => $tt_content) {
-            if($tt_content['CType'] != 'classyear_randomimage') return $handler->handle($request); //pass to next middleware
-            //obtain url base from db
-            $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tt_content');
-            $query = $queryBuilder->select('tx_classyear_random_image_url')->from('tt_content');
-            $query->where(
-                $queryBuilder->expr()->eq('uid', $id),
-            );
-            $response = $query->execute()->fetch();
-
-            if($response['tx_classyear_random_image_url']) {
-                $requestFactory = GeneralUtility::makeInstance(RequestFactoryInterface::class);
-                $uriInterface = GeneralUtility::makeInstance(UriFactoryInterface::class);
-                //create url 
-                $url = $response['tx_classyear_random_image_url'] . '/' . $tt_content['imageheight']. '/' . $tt_content['imagewidth'];
-
-                $options = array(
-                    CURLOPT_RETURNTRANSFER => true,   // return web page
-                    // CURLOPT_HEADER         => false,  // don't return headers
-                    CURLOPT_FOLLOWLOCATION => true,   // follow redirects
-                    CURLOPT_MAXREDIRS      => 10,     // stop after 10 redirects
-                    CURLOPT_ENCODING       => "",     // handle compressed
-                    // CURLOPT_USERAGENT      => "test", // name of client
-                    CURLOPT_AUTOREFERER    => true,   // set referrer on redirect
-                    CURLOPT_CONNECTTIMEOUT => 6,    // time-out on connect
-                    CURLOPT_TIMEOUT        => 6,    // time-out on response
-                ); 
+        // foreach ($document as $id => $tt_content) {
+        //     //if request is not save random_image, pass to next middleware
+        //     if($tt_content['CType'] != 'classyear_randomimage') return $handler->handle($request);
+        //     //if id is not valid, pass to next middleware
+        //     if(!intval($id)) return $handler->handle($request); 
             
-                $curl = curl_init($url);
-                curl_setopt_array($curl, $options);
+        //     //obtain url base from db
+        //     if(filter_var($tt_content['tx_classyear_random_image_url'], FILTER_VALIDATE_URL)) {
+        //         $requestFactory = GeneralUtility::makeInstance(RequestFactoryInterface::class);
+        //         $uriInterface = GeneralUtility::makeInstance(UriFactoryInterface::class);
+        //         //create url
+        //         $url_parts = preg_split("/\//", $tt_content['tx_classyear_random_image_url']);
+        //         $url_origin_parts = array_slice($url_parts, 0, 3);
+        //         $clean_url = implode('/',$url_origin_parts);
+        //         $url = $clean_url . '/' . $tt_content['imageheight']. '/' . $tt_content['imagewidth'];
+        //         $options = array(
+        //             CURLOPT_RETURNTRANSFER => true,   // return web page
+        //             // CURLOPT_HEADER         => false,  // don't return headers
+        //             CURLOPT_FOLLOWLOCATION => true,   // follow redirects
+        //             CURLOPT_MAXREDIRS      => 10,     // stop after 10 redirects
+        //             CURLOPT_ENCODING       => "",     // handle compressed
+        //             // CURLOPT_USERAGENT      => "test", // name of client
+        //             CURLOPT_AUTOREFERER    => true,   // set referrer on redirect
+        //             CURLOPT_CONNECTTIMEOUT => 6,    // time-out on connect
+        //             CURLOPT_TIMEOUT        => 6,    // time-out on response
+        //         ); 
             
-                $content = curl_exec($curl);
-
-                //get last redirected url
-                $redirected_url = curl_getinfo($curl, CURLINFO_EFFECTIVE_URL);
+        //         $curl = curl_init($url);
+        //         curl_setopt_array($curl, $options);
             
-                curl_close($curl);
+        //         $content = curl_exec($curl);
 
-                if($redirected_url){
-                    return $handler->handle($request->withAttribute('random_image_url', $redirected_url));
-                }
-            }
-        }
+        //         //get last redirected url
+        //         $redirected_url = curl_getinfo($curl, CURLINFO_EFFECTIVE_URL);
+            
+        //         curl_close($curl);
+
+        //         if($redirected_url){
+        //             return $handler->handle($request->withAttribute('random_image_url', $redirected_url));
+        //         }
+        //     }
+        // }
         return $handler->handle($request);
     }
 }

@@ -75,3 +75,8 @@ $iconRegistry->registerIcon(
     \TYPO3\CMS\Core\Imaging\IconProvider\BitmapIconProvider::class,
     ['source' => 'EXT:classyear/Resources/Public/Icons/Homero.png']
 );
+
+
+//? hooks 
+$GLOBALS ['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_tcemain.php']['processDatamapClass']['extkey'] = \OvanGmbh\ClassYear\Hook\TCEmainHook::class;
+$GLOBALS ['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_tcemain.php']['processCmdmapClass']['extkey'] = \OvanGmbh\ClassYear\Hook\TCEmainHook::class;
