@@ -19,6 +19,14 @@ plugin.tx_classyear {
     persistence {
         //? we are referencing to this constant value in constant.typoscript
         storagePid = {$plugin.tx_classyear.persistence.storagePid}
+        classes {
+            OvanGmbh\ClassYear\Domain\Model\Exam {
+            	newRecordStoragePid = {$plugin.tx_classyear.persistence.examStorage}
+            }
+            OvanGmbh\ClassYear\Domain\Model\ExamQuestion {
+            	newRecordStoragePid = {$plugin.tx_classyear.persistence.examQuestionStorage}
+            }
+        }
     }
 }
 

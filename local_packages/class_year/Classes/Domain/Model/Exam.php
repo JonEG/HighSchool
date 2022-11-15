@@ -21,12 +21,12 @@ class Exam extends AbstractEntity
     protected ?string $date = null;
 
     /**
-     * @var Classroom
+     * @var ?Classroom
      */
     protected $classroom;
 
     /**
-     * @var Subject
+     * @var ?Subject
      */
     protected $subject;
 
@@ -92,9 +92,9 @@ class Exam extends AbstractEntity
     /**
      * Get the value of classroom
      *
-     * @return  Classroom
+     * @return  ?Classroom
      */ 
-    public function getClassroom(): Classroom
+    public function getClassroom(): ?Classroom
     {
         return $this->classroom;
     }
@@ -116,9 +116,9 @@ class Exam extends AbstractEntity
     /**
      * Get the value of subject
      *
-     * @return  Subject
+     * @return  ?Subject
      */ 
-    public function getSubject(): Subject
+    public function getSubject(): ?Subject
     {
         return $this->subject;
     }

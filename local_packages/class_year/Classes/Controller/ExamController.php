@@ -168,7 +168,7 @@ class ExamController extends ActionController
             $redirectArguments['succeded'] = $newExam->getTitle();
         }
         
-        $this->redirect('form',null, null, $redirectArguments);
+        $this->redirect('list',null, null, $redirectArguments);
     }
 
     /**
@@ -215,7 +215,7 @@ class ExamController extends ActionController
             $redirectArguments['succeded'] = $newExam->getTitle();
         }
         
-        $this->redirect('form',null, null, $redirectArguments);
+        $this->redirect('list',null, null, $redirectArguments);
     }
 
     public function errorAction(){
