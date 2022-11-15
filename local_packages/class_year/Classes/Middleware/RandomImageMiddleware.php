@@ -17,7 +17,10 @@ class RandomImageMiddleware implements MiddlewareInterface
 {
     public function process(ServerRequestInterface $request, RequestHandlerInterface $handler): ResponseInterface
     {
-        //TODO use it only for creation and editing
+        if($request->getQueryParams()['route'] != '/record/edit'){
+            return $handler->handle($request);
+        } 
+        
         $document = $request->getParsedBody()['data']['tt_content'];
         if(!is_array($document)) return $handler->handle($request); //pass to next middleware
 

@@ -10,26 +10,13 @@ class DocumentSave
 {
     public function __invoke(AfterFormEnginePageInitializedEvent $event): void
     {
-        // $eventRequest = $event->getRequest();
-        // $final_url = $eventRequest->getAttribute('random_image_url');
-        // if (!$final_url) {
-        //     return;
-        // }
-
-        // $document = $eventRequest->getParsedBody()['data']['tt_content'];
-        // //do nothing if no content
-        // if (!is_array($document)) {
-        //     return;
-        // }
-
-        // foreach ($document as $id => $_) {
-        //     $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tt_content');
-        //     $query = $queryBuilder->update('tt_content');
-        //     $query->where(
-        //         $queryBuilder->expr()->eq('uid', $id),
-        //     );
-        //     $query->set('tx_classyear_random_image_url', $final_url);
-        //     $response = $query->execute();
-        // }
+        /**
+         * We were trying to modify random_image records before they are saved.
+         * We ended up using middleware to modify the record. Since this event 
+         * is called after the record is persisted, we would need to create a new db 
+         * connection and persist the element again with our record modifications to make this work.
+         * Also we do not have access to the id to persist it when it is created for the first time.
+         * So we could only use this when editing not creating.
+        */ 
     }
 }
