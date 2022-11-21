@@ -132,8 +132,10 @@ class ExamController extends ActionController
             }
 
             $propertyMappingConfiguration = $this->propertyMappingConfigurationBuilder->build();
-            $propertyMappingConfiguration->forProperty('questions.*')->setTypeConverterOption(PersistentObjectConverter::class, PersistentObjectConverter::CONFIGURATION_MODIFICATION_ALLOWED, true);
-            $propertyMappingConfiguration->forProperty('questions.*')->allowAllProperties();
+            $propertyMappingConfiguration
+            ->forProperty('questions.*')
+            ->allowAllProperties()
+            ->setTypeConverterOption(PersistentObjectConverter::class, PersistentObjectConverter::CONFIGURATION_MODIFICATION_ALLOWED, true);
 
             $mappedExam = $this->propertyMapper->convert($exam, Exam::class, $propertyMappingConfiguration);
 

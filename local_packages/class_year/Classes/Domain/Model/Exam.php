@@ -6,6 +6,8 @@ namespace OvanGmbh\ClassYear\Domain\Model;
 
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
+use TYPO3\CMS\Extbase\Annotation\Validate;
+use OvanGmbh\ClassYear\Domain\Validator\DateRangeValidator;
 
 class Exam extends AbstractEntity
 {
@@ -16,7 +18,7 @@ class Exam extends AbstractEntity
 
     /**
      * @var ?string date epoch
-     * @\TYPO3\CMS\Extbase\Annotation\Validate("\OvanGmbh\ClassYear\Domain\Validator\DateRangeValidator")
+     * @Validate(DateRangeValidator::class, options={"dateFormat": "Y-m-d"})
      */
     protected ?string $date = null;
 

@@ -29,6 +29,8 @@ plugin.tx_classyear {
         }
     }
 }
+//? if action does not exist return page not found
+plugin.tx_classyear_examscrud.mvc.throwPageNotFoundExceptionIfActionCantBeResolved = 1
 
 page {
   includeJSFooter {

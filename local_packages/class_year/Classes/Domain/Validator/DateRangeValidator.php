@@ -10,9 +10,20 @@ use \DateTime;
 
 final class DateRangeValidator extends AbstractValidator
 {
+    protected $supportedOptions = [
+        //name
+        'dateFormat' => [
+            'Y-m-d', //value
+            'Date must follow specified format', //message
+            'string', //data type
+            'false', //required
+        ],
+    ];
+
     public function isValid($value): void
     {
-        $dateFormat = 'Y-m-d';
+        $dateFormat = $this->options['dateFormat'];
+
         $today = date($dateFormat);
         $todayDateTime = DateTime::createFromFormat($dateFormat, $today);
         $paramDateTime = DateTime::createFromFormat($dateFormat, $value);
@@ -23,7 +34,7 @@ final class DateRangeValidator extends AbstractValidator
                 $this->addError('The date must be older than today. ', time());
             }
         } else {
-            $this->addError("The date must have Y-m-d format", time());
+            $this->addError("The date must have ". $dateFormat ." format", time());
         }
     }
 }
