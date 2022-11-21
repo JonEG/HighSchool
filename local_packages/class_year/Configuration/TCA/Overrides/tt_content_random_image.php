@@ -69,3 +69,6 @@ $GLOBALS['TCA']['tt_content']['palettes']['random_image'] = [
         imagewidth; Width,
     '
 ];
+
+//? Random Image Preview 
+$GLOBALS['TCA']['tt_content']['types']['classyear_randomimage']['previewRenderer'] = OvanGmbh\ClassYear\Preview\RandomImagePreviewRenderer::class;
