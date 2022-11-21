@@ -34,17 +34,14 @@ class RandomImageMiddleware implements MiddlewareInterface
                 $requestFactory = GeneralUtility::makeInstance(RequestFactoryInterface::class);
                 $uriInterface = GeneralUtility::makeInstance(UriFactoryInterface::class);
                 //create url
-                $url_parts = preg_split("/\//", $tt_content['tx_classyear_random_image_url']);
-                $url_origin_parts = array_slice($url_parts, 0, 3);
-                $clean_url = implode('/',$url_origin_parts);
-                $url = $clean_url . '/' . $tt_content['imageheight']. '/' . $tt_content['imagewidth'];
+                $url = 'https://picsum.photos' . '/' . $tt_content['imageheight']. '/' . $tt_content['imagewidth'];
                 $options = array(
                     CURLOPT_RETURNTRANSFER => true,   // return web page
                     // CURLOPT_HEADER         => false,  // don't return headers
                     CURLOPT_FOLLOWLOCATION => true,   // follow redirects
                     CURLOPT_MAXREDIRS      => 10,     // stop after 10 redirects
                     CURLOPT_ENCODING       => "",     // handle compressed
-                    // CURLOPT_USERAGENT      => "test", // name of client
+                    CURLOPT_USERAGENT => 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.8.1.13) Gecko/20080311 Firefox/2.0.0.13', // name of client
                     CURLOPT_AUTOREFERER    => true,   // set referrer on redirect
                     CURLOPT_CONNECTTIMEOUT => 6,    // time-out on connect
                     CURLOPT_TIMEOUT        => 6,    // time-out on response
