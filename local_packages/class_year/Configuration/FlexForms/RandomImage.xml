@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<T3DataStructure>
+  <sheets>
+    <sDEF>
+      <ROOT>
+        <TCEforms>
+          <sheetTitle>Random Image FlexForm</sheetTitle>
+        </TCEforms>
+        <type>array</type>
+        <el>
+          <settings.isAutomaticallyRefreshed>
+            <label>
+                Get new image on refresh
+            </label>
+            <config>
+              <type>check</type>
+              <renderType>checkboxLabeledToggle</renderType>
+              <items>
+                <numIndex index="0" type="array">
+                  <numIndex index="0">Refresh</numIndex>
+                  <numIndex index="labelChecked">On</numIndex>
+                  <numIndex index="labelUnchecked">Off</numIndex>
+                </numIndex>
+              </items>
+            </config>
+          </settings.isAutomaticallyRefreshed>
+        </el>
+      </ROOT>
+    </sDEF>
+  </sheets>
+</T3DataStructure>

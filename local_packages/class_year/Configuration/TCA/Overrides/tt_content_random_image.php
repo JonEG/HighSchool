@@ -67,8 +67,17 @@ $GLOBALS['TCA']['tt_content']['palettes']['random_image'] = [
         imageheight; Height,
         --linebreak--,
         imagewidth; Width,
+        --linebreak--,
+        pi_flexform; Flexform
     '
 ];
 
 //? Random Image Preview 
 $GLOBALS['TCA']['tt_content']['types']['classyear_randomimage']['previewRenderer'] = OvanGmbh\ClassYear\Preview\RandomImagePreviewRenderer::class;
+
+//? Set Flexform
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue(
+    '*',
+    'FILE:EXT:classyear/Configuration/FlexForms/RandomImage.xml',
+    'classyear_randomimage'
+);
