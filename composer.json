@@ -19,6 +19,7 @@
 		}
   ],
 	"require": {
+		"dirkpersky/typo3-dp_cookieconsent": "^11.6",
 		"helhum/typo3-console": "^6.0.0",
 		"ovan-gmbh/class_year": "^1.0",
 		"ovan-gmbh/sitepackage": "^0.1.0",
