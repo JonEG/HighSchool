@@ -7,14 +7,13 @@ namespace OvanGmbh\ClassYear\Domain\Model;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 use TYPO3\CMS\Extbase\Annotation\Validate;
-use TYPO3\CMS\Extbase\Validation\Validator\TextValidator;
 use OvanGmbh\ClassYear\Validation\Validator\DateRangeValidator;
 
 class Exam extends AbstractEntity
 {
     /**
      * @var string title
-     * @Validate(TextValidator::class)
+     * @Validate("Text")
      */
     protected $title = '';
 
