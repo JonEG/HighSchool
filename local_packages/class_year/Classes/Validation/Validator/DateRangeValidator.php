@@ -2,7 +2,7 @@
 
 declare(strict_types = 1);
 
-namespace OvanGmbh\ClassYear\Domain\Validator;
+namespace OvanGmbh\ClassYear\Validation\Validator;
 
 use TYPO3\CMS\Extbase\Validation\Validator\AbstractValidator;
 
