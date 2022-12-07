@@ -10,3 +10,22 @@ services:
       - name: event.listener
         identifier: 'afterDocumentSave'
         event: TYPO3\CMS\Backend\Controller\Event\AfterFormEnginePageInitializedEvent
+
+  OvanGmbh\ClassYear\:
+    resource: '../Classes/*'
+
+  dashboard.widget.ovangmbh.classyear.studentsPerCouse:
+    class: 'OvanGmbh\ClassYear\Widgets\MyDonut'
+    arguments:
+      $dataProvider: '@OvanGmbh\ClassYear\Widgets\Provider\StudentsByLevelProvider'
+      $view: '@dashboard.views.widget'
+      $options:
+         refreshAvailable: true
+    tags:
+      - name: dashboard.widget
+        identifier: 'studentsPerCouse'
+        groupNames: 'systemInfo'
+        title: 'Students per course'
+        description: 'Chart with the number of students per class'
+        iconIdentifier: 'content-widget-chart-pie'
+        height: 'medium'
