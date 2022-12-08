@@ -1,10 +1,11 @@
+#! cache needs to be cleaned everytime we change this file
 services:
   _defaults:
       autowire: true
       autoconfigure: true
       public: false
 
-  # cache needs to be cleaned everytime we change this file
+  # register event
   OvanGmbh\ClassYear\EventListener\DocumentSave:
     tags:
       - name: event.listener
@@ -14,6 +15,7 @@ services:
   OvanGmbh\ClassYear\:
     resource: '../Classes/*'
 
+  # register dashboard widget 
   dashboard.widget.ovangmbh.classyear.studentsPerCouse:
     class: 'OvanGmbh\ClassYear\Widgets\MyDonut'
     arguments:
@@ -29,3 +31,9 @@ services:
         description: 'Chart with the number of students per class'
         iconIdentifier: 'content-widget-chart-pie'
         height: 'medium'
+  
+  # register command
+  OvanGmbh\ClassYear\Command\ListStudentsCommand:
+    tags:
+      - name: 'console.command'
+        command: 'classyear:liststudents'
