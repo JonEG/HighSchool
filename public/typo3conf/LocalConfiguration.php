@@ -32,6 +32,10 @@ return [
             'automaticInstallation' => '1',
             'offlineMode' => '0',
         ],
+        'scheduler' => [
+            'maxLifetime' => '1440',
+            'showSampleTasks' => '1',
+        ],
     ],
     'FE' => [
         'debug' => false,
