@@ -15,14 +15,14 @@ defined('TYPO3_MODE') || die('Access denied.');
 );
 
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
-    'ClassYear',
+    'OvanGmbh.ClassYear',
     'ClassmatesList',
     [
-        \OvanGmbh\ClassYear\Controller\MainController::class => 'classmates',
+        'Main' => 'classmates',
     ],
     // non-cacheable actions
     [
-        \OvanGmbh\ClassYear\Controller\MainController::class => 'classmates',
+        'Main' => 'classmates',
     ]
 );
 
