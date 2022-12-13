@@ -12,25 +12,27 @@ services:
         identifier: 'afterDocumentSave'
         event: TYPO3\CMS\Backend\Controller\Event\AfterFormEnginePageInitializedEvent
 
-  # OvanGmbh\ClassYear\:
-  #   resource: '../Classes/*'
 
-  # # register dashboard widget 
-  # dashboard.widget.ovangmbh.classyear.studentsPerCouse:
-  #   class: 'OvanGmbh\ClassYear\Widgets\MyDonut'
-  #   arguments:
-  #     $dataProvider: '@OvanGmbh\ClassYear\Widgets\Provider\StudentsByLevelProvider'
-  #     $view: '@dashboard.views.widget'
-  #     $options:
-  #        refreshAvailable: true
-  #   tags:
-  #     - name: dashboard.widget
-  #       identifier: 'studentsPerCouse'
-  #       groupNames: 'systemInfo'
-  #       title: 'Students per course'
-  #       description: 'Chart with the number of students per class'
-  #       iconIdentifier: 'content-widget-chart-pie'
-  #       height: 'medium'
+  dashboard.widget.ovangmbh.classyear.dataProvider:
+    class: 'OvanGmbh\ClassYear\Widgets\Provider\StudentsByLevelProvider'
+    public: true
+
+  # register dashboard widget 
+  dashboard.widget.ovangmbh.classyear.studentsPerCouse:
+    class: 'OvanGmbh\ClassYear\Widgets\MyDonut'
+    arguments:
+      $dataProvider: '@dashboard.widget.ovangmbh.classyear.dataProvider'
+      $view: '@dashboard.views.widget'
+      $options:
+         refreshAvailable: true
+    tags:
+      - name: dashboard.widget
+        identifier: 'studentsPerCouse'
+        groupNames: 'systemInfo'
+        title: 'Students per course'
+        description: 'Chart with the number of students per class'
+        iconIdentifier: 'content-widget-chart-pie'
+        height: 'medium'
   
   # register command
   OvanGmbh\ClassYear\Command\ListStudentsCommand:
