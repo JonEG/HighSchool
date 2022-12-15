@@ -80,3 +80,9 @@ $iconRegistry->registerIcon(
 //? hooks 
 $GLOBALS ['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_tcemain.php']['processDatamapClass']['extkey'] = \OvanGmbh\ClassYear\Hook\TCEmainHook::class;
 $GLOBALS ['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_tcemain.php']['processCmdmapClass']['extkey'] = \OvanGmbh\ClassYear\Hook\TCEmainHook::class;
+
+
+// //? Always include Random classyear_randomimage content element in the backoffice
+// \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfigFile(
+//     '<INCLUDE_TYPOSCRIPT: source="FILE:EXT:sitepackage/Configuration/TSConfig/Page/Mod/Wizards/RandomImageContentElement.tsconfig">'
+// );
