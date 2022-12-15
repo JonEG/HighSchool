@@ -7,9 +7,11 @@ use OvanGmbh\ClassYear\Domain\Repository\ClassroomRepository;
 use OvanGmbh\ClassYear\Domain\Repository\SubjectRepository;
 use OvanGmbh\ClassYear\Domain\Repository\MyCategoryRepository;
 use OvanGmbh\ClassYear\Domain\Model\Classroom;
+use OvanGmbh\ClassYear\Backend\StudentListOrderingItems;
 
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 use TYPO3\CMS\Core\Context\Context;
+use TYPO3\CMS\Extbase\Persistence\QueryInterface;
 
 
 class MainController extends ActionController
@@ -49,10 +51,7 @@ class MainController extends ActionController
         $classroomUid = $this->request->getArguments()['classroomUid'];
         
         if(!empty($classroomUid) && ((int) $classroomUid) > 0) {
-            //? students filtered by classroom
-            $classroom = $this->classroomRepository->findByUid($classroomUid);
-
-            $this->request->setArgument('classroom', $classroom);
+            $this->request->setArgument('classroom', $classroomUid);
         }
     }
 
@@ -61,11 +60,33 @@ class MainController extends ActionController
      * List students
      * can be filtered with argument 'classroom'
      */
-    public function listAction(?Classroom $classroom = null)
+    public function listAction(?int $classroom = null)
     {
+        //ordering students
+        if(!empty($this->settings['orderBy'])){
+            switch ($this->settings['orderBy']) {
+                case StudentListOrderingItems::NAME: 
+                    $this->studentRepository->setDefaultOrderings(
+                        [StudentListOrderingItems::NAME => QueryInterface::ORDER_ASCENDING]
+                    );
+                    break;
+                case StudentListOrderingItems::EMAIL: 
+                    $this->studentRepository->setDefaultOrderings(
+                        [StudentListOrderingItems::EMAIL => QueryInterface::ORDER_ASCENDING]
+                    );
+                    break;
+                case StudentListOrderingItems::COURSE: 
+                    $this->studentRepository->setDefaultOrderings(
+                        [StudentListOrderingItems::COURSE => QueryInterface::ORDER_ASCENDING]
+                    );
+                    break;
+                default:
+                    break;
+            }
+        }
         if(!empty($classroom)) {
             //? students filtered by classroom
-            $students = $classroom->getStudents();
+            $students = $this->studentRepository->findByClassroom($classroom);
         } else {
             //? all students
             $students = $this->studentRepository->findAllStudents();

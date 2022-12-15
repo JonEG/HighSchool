@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<T3DataStructure>
+  <sheets>
+    <sDEF>
+      <ROOT>
+        <TCEforms>
+          <sheetTitle>Student List FlexForm</sheetTitle>
+        </TCEforms>
+        <type>array</type>
+        <el>
+          <settings.orderBy>
+            <TCEforms>
+              <label>
+                Order students by
+              </label>
+              <config>
+                <type>select</type>
+                <renderType>selectSingle</renderType>
+                <items type="array"></items>
+                <itemsProcFunc>OvanGmbh\ClassYear\Backend\StudentListOrderingItems->student_orderBy</itemsProcFunc>
+              </config>
+            </TCEforms>
+          </settings.orderBy>
+        </el>
+      </ROOT>
+    </sDEF>
+  </sheets>
+</T3DataStructure>
