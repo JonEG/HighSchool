@@ -4,6 +4,17 @@ return [
         'title' => 'LLL:EXT:classyear/Resources/Private/Language/locallang.xlf:classroom',
         'label' => 'name',
         'iconfile' => 'EXT:classyear/Resources/Public/Icons/Student.gif',
+        'sortby' => 'sorting',
+        'tstamp' => 'tstamp',
+        'crdate' => 'crdate',
+        'delete' => 'deleted',
+        'versioningWS' => true,
+        'enablecolumns' => [
+            'disabled' => 'hidden',
+            'starttime' => 'starttime',
+            'endtime' => 'endtime',
+            'fe_group' => 'fe_group',
+        ],
     ],
     'columns' => [
         'name' => [
