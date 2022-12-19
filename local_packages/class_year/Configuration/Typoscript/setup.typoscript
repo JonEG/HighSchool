@@ -70,3 +70,12 @@ tt_content {
     templateName = RandomImage
   }
 }
+
+//? Create content object that retrieves current user information
+lib.myUser = USER_INT 
+lib.myUser {
+  userFunc = OvanGmbh\ClassYear\UserFunctions\CurrentFEUser->getFEUsername
+  stdWrap.wrap = <strong>|</strong>
+}
+
+page.5 < lib.myUser
