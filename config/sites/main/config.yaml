@@ -1,5 +1,4 @@
 base: 'https://highschool.ddev.site/'
-errorHandling: {  }
 languages:
   -
     title: English
@@ -13,9 +12,23 @@ languages:
     hreflang: en-us
     direction: ltr
     flag: us
+    websiteTitle: ''
+  -
+    title: Spanish
+    enabled: true
+    languageId: 1
+    base: /es/
+    typo3Language: es
+    locale: es_ES.UTF-8
+    iso-639-1: es
+    navigationTitle: Spanish
+    hreflang: es-ES
+    direction: ltr
+    flag: es
+    websiteTitle: ''
+    fallbackType: strict
+    fallbacks: ''
 rootPageId: 1
-routes: {  }
-
 routeEnhancers:
   ListClassroomStudents:
     type: Extbase
@@ -25,35 +38,40 @@ routeEnhancers:
     defaults:
       classroomUid: '-1'
     routes:
-      - routePath: '/{classroom_name}/{classroomUid}'
+      -
+        routePath: '/{classroom_name}/{classroomUid}'
         _controller: 'Main::list'
     aspects:
       classroomUid:
         type: PersistedPatternMapper
-        tableName: 'tx_classyear_domain_model_classroom'
+        tableName: tx_classyear_domain_model_classroom
         routeFieldPattern: '^(?P<slug>.+)'
-        routeFieldResult: "{slug}"
-      # to translate /filter/ into different languages
+        routeFieldResult: '{slug}'
       classroom_name:
         type: LocaleModifier
-        default: 'classroom'
+        default: classroom
         localeMap:
-          - locale: 'en_EN.*'
-            value: 'classroom'
-          - locale: 'es_ES.*'
-            value: 'clase'
+          -
+            locale: 'en_EN.*'
+            value: classroom
+          -
+            locale: 'es_ES.*'
+            value: clase
   JsonPlug:
     type: Extbase
     extension: ClassYear
     plugin: JsonPlugin
     routes:
-      - routePath: '/api/classes'
+      -
+        routePath: /api/classes
         _controller: 'Json::listClassrooms'
-      - routePath: '/api/classrooms/{classroomUid}'
+      -
+        routePath: '/api/classrooms/{classroomUid}'
         _controller: 'Json::showClassroom'
   PageTypeSuffix:
-      type: PageType
-      index: 'index'
-      map:
-        'rss.feed': 13
-        '.json': 26
+    type: PageType
+    index: index
+    map:
+      rss.feed: 13
+      .json: 26
+websiteTitle: ''

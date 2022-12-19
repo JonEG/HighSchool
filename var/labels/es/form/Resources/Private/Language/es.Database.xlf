@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="en" datatype="plaintext" original="EXT:form/Resources/Private/Language/Database.xlf" date="2016-08-21T20:15:32Z" product-name="form" target-language="es">
+    <header/>
+    <body>
+      <trans-unit id="default" resname="default" xml:space="preserve" approved="yes">
+                <source>Default</source>
+            <target state="final">Predeterminado</target></trans-unit>
+      <trans-unit id="empty" resname="empty" xml:space="preserve" approved="yes">
+                <source>[Empty]</source>
+            <target state="final">[Vacío]</target></trans-unit>
+      <trans-unit id="tt_content.pi_flexform.formframework.persistenceIdentifier" resname="tt_content.pi_flexform.formframework.persistenceIdentifier" xml:space="preserve" approved="yes">
+                <source>Form definition</source>
+            <target state="final">Definición del formulario</target></trans-unit>
+      <trans-unit id="tt_content.pi_flexform.formframework.sheet_general" resname="tt_content.pi_flexform.formframework.sheet_general" xml:space="preserve" approved="yes">
+                <source>General</source>
+            <target state="final">General</target></trans-unit>
+      <trans-unit id="tt_content.pi_flexform.formframework.selectPersistenceIdentifier" resname="tt_content.pi_flexform.formframework.selectPersistenceIdentifier" xml:space="preserve" approved="yes">
+                <source>Please select a form definition</source>
+            <target state="final">Por favor, seleccione una definición de formulario</target></trans-unit>
+      <trans-unit id="tt_content.preview.noPersistenceIdentifier" resname="tt_content.preview.noPersistenceIdentifier" xml:space="preserve" approved="yes">
+                <source>No form selected.</source>
+            <target state="final">Formulario no seleccionado.</target></trans-unit>
+      <trans-unit id="tt_content.preview.invalidPersistenceIdentifier" resname="tt_content.preview.invalidPersistenceIdentifier" xml:space="preserve" approved="yes">
+                <source>Invalid form "%s".</source>
+            <target state="final">Forma no válida "%s".</target></trans-unit>
+      <trans-unit id="tt_content.preview.inaccessiblePersistenceIdentifier" resname="tt_content.preview.inaccessiblePersistenceIdentifier" xml:space="preserve" approved="yes">
+                <source>"%s" (no read access).</source>
+            <target state="final">"%s" (sin acceso de lectura).</target></trans-unit>
+      <trans-unit id="tt_content.preview.notExistingdPersistenceIdentifier" resname="tt_content.preview.notExistingdPersistenceIdentifier" xml:space="preserve" approved="yes">
+                <source>The form "%s" does not exist.</source>
+            <target state="final">El campo "%s" no existe.</target></trans-unit>
+      <trans-unit id="tt_content.preview.invalidFrameworkConfiguration" resname="tt_content.preview.invalidFrameworkConfiguration" xml:space="preserve" approved="yes">
+                <source>"%s" (Invalid ext:form configuration).</source>
+            <target state="final">"%s" (configuración de ext:form no válida).</target></trans-unit>
+      <trans-unit id="tt_content.preview.invalidFrameworkConfiguration.text" resname="tt_content.preview.invalidFrameworkConfiguration.text" xml:space="preserve" approved="yes">
+                <source>Invalid ext:form configuration. %s</source>
+            <target state="final">Configuración de ext:form no válida. %s</target></trans-unit>
+      <trans-unit id="tt_content.preview.invalidFrameworkConfiguration.title" resname="tt_content.preview.invalidFrameworkConfiguration.title" xml:space="preserve" approved="yes">
+                <source>Invalid configuration.</source>
+            <target state="final">Configuración no válida.</target></trans-unit>
+      <trans-unit id="tt_content.finishersDefinition.Confirmation.label" resname="tt_content.finishersDefinition.Confirmation.label" xml:space="preserve" approved="yes">
+                <source>Confirmation</source>
+            <target state="final">Confirmación</target></trans-unit>
+      <trans-unit id="tt_content.finishersDefinition.Confirmation.message.label" resname="tt_content.finishersDefinition.Confirmation.message.label" xml:space="preserve" approved="yes">
+                <source>Text</source>
+            <target state="final">Texto</target></trans-unit>
+      <trans-unit id="tt_content.finishersDefinition.EmailToSender.subject.label" resname="tt_content.finishersDefinition.EmailToSender.subject.label" xml:space="preserve" approved="yes">
+                <source>Subject of the email</source>
+            <target state="final">Asunto del correo electrónico</target></trans-unit>
+      <trans-unit id="tt_content.finishersDefinition.EmailToSender.recipients.label" resname="tt_content.finishersDefinition.EmailToSender.recipients.label" xml:space="preserve" approved="yes">
+                <source>Recipients</source>
+            <target state="final">Destinatarios</target></trans-unit>
+      <trans-unit id="tt_content.finishersDefinition.EmailToSender.recipients.item.label" resname="tt_content.finishersDefinition.EmailToSender.recipients.item.label" xml:space="preserve" approved="yes">
+                <source>Recipient</source>
+            <target state="final">Destinatario</target></trans-unit>
+      <trans-unit id="tt_content.finishersDefinition.EmailToSender.recipients.name.label" resname="tt_content.finishersDefinition.EmailToSender.recipients.name.label" xml:space="preserve" approved="yes">
+                <source>Name</source>
+            <target state="final">Nombre</target></trans-unit>
+      <trans-unit id="tt_content.finishersDefinition.EmailToSender.addHtmlPart.label" resname="tt_content.finishersDefinition.EmailToSender.addHtmlPart.label" xml:space="preserve" approved="yes">
+                <source>Add HTML mail part</source>
+            <target state="final">Añadir parte de correo HTML</target></trans-unit>
+      <trans-unit id="tt_content.finishersDefinition.EmailToSender.language.label" resname="tt_content.finishersDefinition.EmailToSender.language.label" xml:space="preserve" approved="yes">
+                <source>Translation language</source>
+            <target state="final">Idioma de traducción</target></trans-unit>
+      <trans-unit id="tt_content.finishersDefinition.EmailToSender.language.1" resname="tt_content.finishersDefinition.EmailToSender.language.1" xml:space="preserve" approved="yes">
+                <source>Default</source>
+            <target state="final">Predeterminar</target></trans-unit>
+      <trans-unit id="tt_content.finishersDefinition.EmailToSender.title.label" resname="tt_content.finishersDefinition.EmailToSender.title.label" xml:space="preserve" approved="yes">
+                <source>Title</source>
+            <target state="final">Título</target></trans-unit>
+      <trans-unit id="tt_content.finishersDefinition.EmailToReceiver.label" resname="tt_content.finishersDefinition.EmailToReceiver.label" xml:space="preserve" approved="yes">
+                <source>Email to receiver (you)</source>
+            <target state="final">Email al receptor (usted)</target></trans-unit>
+      <trans-unit id="tt_content.finishersDefinition.EmailToReceiver.subject.label" resname="tt_content.finishersDefinition.EmailToReceiver.subject.label" xml:space="preserve" approved="yes">
+                <source>Subject of the email</source>
+            <target state="final">Asunto del correo electrónico</target></trans-unit>
+      <trans-unit id="tt_content.finishersDefinition.EmailToReceiver.recipients.label" resname="tt_content.finishersDefinition.EmailToReceiver.recipients.label" xml:space="preserve" approved="yes">
+                <source>Email addresses and human-readable names of the recipients</source>
+            <target state="final">Direcciones de correo electrónico y nombres legibles de los destinatarios</target></trans-unit>
+      <trans-unit id="tt_content.finishersDefinition.EmailToReceiver.senderName.label" resname="tt_content.finishersDefinition.EmailToReceiver.senderName.label" xml:space="preserve" approved="yes">
+                <source>Human-readable name of the sender</source>
+            <target state="final">Nombre legible por humanos del remitente</target></trans-unit>
+      <trans-unit id="tt_content.finishersDefinition.EmailToReceiver.replyToRecipients.label" resname="tt_content.finishersDefinition.EmailToReceiver.replyToRecipients.label" xml:space="preserve" approved="yes">
+                <source>Reply-To Recipients</source>
+            <target state="final">Responder a los destinatarios</target></trans-unit>
+      <trans-unit id="tt_content.finishersDefinition.EmailToReceiver.language.label" resname="tt_content.finishersDefinition.EmailToReceiver.language.label" xml:space="preserve" approved="yes">
+                <source>Translation language</source>
+            <target state="final">Idioma de traducción</target></trans-unit>
+      <trans-unit id="tt_content.finishersDefinition.EmailToReceiver.language.1" resname="tt_content.finishersDefinition.EmailToReceiver.language.1" xml:space="preserve" approved="yes">
+                <source>Default</source>
+            <target state="final">Predeterminado</target></trans-unit>
+      <trans-unit id="tt_content.finishersDefinition.EmailToReceiver.title.label" resname="tt_content.finishersDefinition.EmailToReceiver.title.label" xml:space="preserve" approved="yes">
+                <source>Title</source>
+            <target state="final">Título</target></trans-unit>
+      <trans-unit id="tt_content.finishersDefinition.Redirect.pageUid.label" resname="tt_content.finishersDefinition.Redirect.pageUid.label" xml:space="preserve" approved="yes">
+                <source>Page</source>
+            <target state="final">Página</target></trans-unit>
+      <trans-unit id="formEditor.structure" resname="formEditor.structure" xml:space="preserve" approved="yes">
+                <source>Structure</source>
+            <target state="final">Estructura</target></trans-unit>
+      <trans-unit id="formEditor.formElementPropertyValidatorsDefinition.Integer.label" resname="formEditor.formElementPropertyValidatorsDefinition.Integer.label" xml:space="preserve" approved="yes">
+                <source>Not a number</source>
+            <target state="final">No un número</target></trans-unit>
+      <trans-unit id="formEditor.elements.BaseFormElementMixin.editor.label.label" resname="formEditor.elements.BaseFormElementMixin.editor.label.label" xml:space="preserve" approved="yes">
+                <source>Form name</source>
+            <target state="final">Nombre del formulario</target></trans-unit>
+      <trans-unit id="formEditor.modals.insertElements.dialogTitle" resname="formEditor.modals.insertElements.dialogTitle" xml:space="preserve" approved="yes">
+                <source>New element</source>
+            <target state="final">Nuevo elemento</target></trans-unit>
+      <trans-unit id="formEditor.modals.close.confirmButton" resname="formEditor.modals.close.confirmButton" xml:space="preserve" approved="yes">
+                <source>Yes, discard my changes</source>
+            <target state="final">Sí, descartar mis cambios</target></trans-unit>
+      <trans-unit id="formEditor.modals.close.cancleButton" resname="formEditor.modals.close.cancleButton" xml:space="preserve" approved="yes">
+                <source>No, I will continue editing</source>
+            <target state="final">No, continuaré editando</target></trans-unit>
+      <trans-unit id="formEditor.pagination.title" resname="formEditor.pagination.title" xml:space="preserve" approved="yes">
+                <source>Step {0} of {1}</source>
+            <target state="final">Paso {0} de {1}</target></trans-unit>
+      <trans-unit id="formEditor.elements.MinimumMaximumEditorsMixin.editor.minimum.label" resname="formEditor.elements.MinimumMaximumEditorsMixin.editor.minimum.label" xml:space="preserve" approved="yes">
+                <source>Minimum</source>
+            <target state="final">Mínimo</target></trans-unit>
+      <trans-unit id="formEditor.elements.MinimumMaximumEditorsMixin.editor.maximum.label" resname="formEditor.elements.MinimumMaximumEditorsMixin.editor.maximum.label" xml:space="preserve" approved="yes">
+                <source>Maximum</source>
+            <target state="final">Máximo</target></trans-unit>
+      <trans-unit id="formEditor.elements.TextMixin.editor.validators.label" resname="formEditor.elements.TextMixin.editor.validators.label" xml:space="preserve" approved="yes">
+                <source>Validators</source>
+            <target state="final">Validadores</target></trans-unit>
+      <trans-unit id="formEditor.elements.TextMixin.editor.validators.EmptyValue.label" resname="formEditor.elements.TextMixin.editor.validators.EmptyValue.label" xml:space="preserve" approved="yes">
+                <source>Add validator</source>
+            <target state="final">Añadir validador</target></trans-unit>
+      <trans-unit id="formEditor.elements.TextMixin.validators.Integer.editor.header.label" resname="formEditor.elements.TextMixin.validators.Integer.editor.header.label" xml:space="preserve" approved="yes">
+                <source>Integer number</source>
+            <target state="final">Número entero</target></trans-unit>
+      <trans-unit id="formEditor.elements.TextMixin.validators.Integer.editor.validationErrorMessage.label" resname="formEditor.elements.TextMixin.validators.Integer.editor.validationErrorMessage.label" xml:space="preserve" approved="yes">
+                <source>Custom error message</source>
+            <target state="final">Mensaje de error personalizado</target></trans-unit>
+      <trans-unit id="formEditor.elements.TextMixin.validators.Integer.editor.validationErrorMessage.fieldExplanationText" resname="formEditor.elements.TextMixin.validators.Integer.editor.validationErrorMessage.fieldExplanationText" xml:space="preserve" approved="yes">
+                <source>Error message which is shown if the validation does not succeed</source>
+            <target state="final">Mensaje de error que se muestra si la validación no tiene éxito</target></trans-unit>
+      <trans-unit id="formEditor.elements.TextMixin.validators.Float.editor.header.label" resname="formEditor.elements.TextMixin.validators.Float.editor.header.label" xml:space="preserve" approved="yes">
+                <source>Floating-point number</source>
+            <target state="final">Número de puntos flotantes</target></trans-unit>
+      <trans-unit id="formEditor.elements.TextMixin.validators.Float.editor.validationErrorMessage.label" resname="formEditor.elements.TextMixin.validators.Float.editor.validationErrorMessage.label" xml:space="preserve" approved="yes">
+                <source>Custom error message</source>
+            <target state="final">Mensaje de error personalizado</target></trans-unit>
+      <trans-unit id="formEditor.elements.TextMixin.validators.Float.editor.validationErrorMessage.fieldExplanationText" resname="formEditor.elements.TextMixin.validators.Float.editor.validationErrorMessage.fieldExplanationText" xml:space="preserve" approved="yes">
+                <source>Error message which is shown if the validation does not succeed</source>
+            <target state="final">Mensaje de error que se muestra si la validación no tiene éxito</target></trans-unit>
+      <trans-unit id="formEditor.elements.TextMixin.validators.Number.editor.header.label" resname="formEditor.elements.TextMixin.validators.Number.editor.header.label" xml:space="preserve" approved="yes">
+                <source>Number</source>
+            <target state="final">Número</target></trans-unit>
+      <trans-unit id="formEditor.elements.TextMixin.validators.NumberRange.editor.header.label" resname="formEditor.elements.TextMixin.validators.NumberRange.editor.header.label" xml:space="preserve" approved="yes">
+                <source>Number range</source>
+            <target state="final">Rango de números</target></trans-unit>
+      <trans-unit id="formEditor.elements.TextMixin.validators.NumberRange.editor.validationErrorMessage.label" resname="formEditor.elements.TextMixin.validators.NumberRange.editor.validationErrorMessage.label" xml:space="preserve" approved="yes">
+                <source>Custom error message</source>
+            <target state="final">Mensaje de error personalizado</target></trans-unit>
+      <trans-unit id="formEditor.elements.TextMixin.validators.NumberRange.editor.validationErrorMessage.fieldExplanationText" resname="formEditor.elements.TextMixin.validators.NumberRange.editor.validationErrorMessage.fieldExplanationText" xml:space="preserve" approved="yes">
+                <source>Error message which is shown if the validation does not succeed</source>
+            <target state="final">Mensaje de error que se muestra si la validación no tiene éxito</target></trans-unit>
+      <trans-unit id="formEditor.elements.TextMixin.validators.RegularExpression.editor.header.label" resname="formEditor.elements.TextMixin.validators.RegularExpression.editor.header.label" xml:space="preserve" approved="yes">
+                <source>Regular expression</source>
+            <target state="final">Expresión regular</target></trans-unit>
+      <trans-unit id="formEditor.elements.TextMixin.validators.RegularExpression.editor.regex.label" resname="formEditor.elements.TextMixin.validators.RegularExpression.editor.regex.label" xml:space="preserve" approved="yes">
+                <source>Regular expression</source>
+            <target state="final">Expresión regular</target></trans-unit>
+      <trans-unit id="formEditor.elements.TextMixin.validators.RegularExpression.editor.regex.fieldExplanationText" resname="formEditor.elements.TextMixin.validators.RegularExpression.editor.regex.fieldExplanationText" xml:space="preserve" approved="yes">
+                <source>Enter a valid PHP PCRE regular expression here.</source>
+            <target state="final">Introduzca una expresión regular PHP PCRE válida aquí.</target></trans-unit>
+      <trans-unit id="formEditor.elements.TextMixin.validators.RegularExpression.editor.validationErrorMessage.label" resname="formEditor.elements.TextMixin.validators.RegularExpression.editor.validationErrorMessage.label" xml:space="preserve" approved="yes">
+                <source>Custom error message</source>
+            <target state="final">Mensaje de error personalizado</target></trans-unit>
+      <trans-unit id="formEditor.elements.SelectionMixin.editor.options.label" resname="formEditor.elements.SelectionMixin.editor.options.label" xml:space="preserve" approved="yes">
+                <source>Choices</source>
+            <target state="final">Opciones</target></trans-unit>
+      <trans-unit id="formEditor.elements.MultiSelectionMixin.editor.validators.label" resname="formEditor.elements.MultiSelectionMixin.editor.validators.label" xml:space="preserve" approved="yes">
+                <source>Validators</source>
+            <target state="final">Validadores</target></trans-unit>
+      <trans-unit id="formEditor.elements.Form.finisher.EmailToSender.editor.recipients.gridColumns.value.title" resname="formEditor.elements.Form.finisher.EmailToSender.editor.recipients.gridColumns.value.title" xml:space="preserve" approved="yes">
+                <source>Email Address</source>
+            <target state="final">Correo electrónico</target></trans-unit>
+      <trans-unit id="formEditor.elements.FormElement.editor.gridColumnViewPortConfiguration.sm.label" resname="formEditor.elements.FormElement.editor.gridColumnViewPortConfiguration.sm.label" xml:space="preserve" approved="yes">
+                <source>Small</source>
+            <target state="final">Pequeño</target></trans-unit>
+      <trans-unit id="formEditor.elements.FormElement.editor.gridColumnViewPortConfiguration.md.label" resname="formEditor.elements.FormElement.editor.gridColumnViewPortConfiguration.md.label" xml:space="preserve" approved="yes">
+                <source>Medium</source>
+            <target state="final">Medio</target></trans-unit>
+      <trans-unit id="formEditor.elements.FormElement.editor.gridColumnViewPortConfiguration.lg.label" resname="formEditor.elements.FormElement.editor.gridColumnViewPortConfiguration.lg.label" xml:space="preserve" approved="yes">
+                <source>Large</source>
+            <target state="final">Grande</target></trans-unit>
+      <trans-unit id="formEditor.elements.FormElement.editor.gridColumnViewPortConfiguration.numbersOfColumnsToUse.label" resname="formEditor.elements.FormElement.editor.gridColumnViewPortConfiguration.numbersOfColumnsToUse.label" xml:space="preserve" approved="yes">
+                <source>Numbers of columns for viewport "{@viewPortLabel}"</source>
+            <target state="final">Números de columnas para la vista "{@viewPortLabel}"</target></trans-unit>
+      <trans-unit id="formEditor.elements.FormElement.editor.gridColumnViewPortConfiguration.numbersOfColumnsToUse.fieldExplanationText" resname="formEditor.elements.FormElement.editor.gridColumnViewPortConfiguration.numbersOfColumnsToUse.fieldExplanationText" xml:space="preserve" approved="yes">
+                <source>Leave empty for auto calculation</source>
+            <target state="final">Dejar vacío para el cálculo automático</target></trans-unit>
+      <trans-unit id="formEditor.elements.Page.label" resname="formEditor.elements.Page.label" xml:space="preserve" approved="yes">
+                <source>Step</source>
+            <target state="final">Paso</target></trans-unit>
+      <trans-unit id="formEditor.elements.Number.label" resname="formEditor.elements.Number.label" xml:space="preserve" approved="yes">
+                <source>Number</source>
+            <target state="final">Número</target></trans-unit>
+      <trans-unit id="formEditor.elements.Number.editor.validators.Number.label" resname="formEditor.elements.Number.editor.validators.Number.label" xml:space="preserve" approved="yes">
+                <source>Number</source>
+            <target state="final">Número</target></trans-unit>
+      <trans-unit id="formEditor.elements.Date.label" resname="formEditor.elements.Date.label" xml:space="preserve" approved="yes">
+                <source>Date</source>
+            <target state="final">Fecha</target></trans-unit>
+      <trans-unit id="formEditor.elements.Date.editor.defaultValue.placeholder" resname="formEditor.elements.Date.editor.defaultValue.placeholder" xml:space="preserve" approved="yes">
+                <source>A date in format Y-m-d (e.g 2018-03-17)</source>
+            <target state="final">Una fecha en formato a-m-d (por ejemplo, 2018-03-17)</target></trans-unit>
+      <trans-unit id="formEditor.element.AdvancedPassword.editor.confirmationLabel.predefinedDefaults" resname="formEditor.element.AdvancedPassword.editor.confirmationLabel.predefinedDefaults" xml:space="preserve" approved="yes">
+                <source>Confirmation</source>
+            <target state="final">Confirmación</target></trans-unit>
+      <trans-unit id="formEditor.elements.Textarea.label" resname="formEditor.elements.Textarea.label" xml:space="preserve" approved="yes">
+                <source>Textarea</source>
+            <target state="final">Área de texto</target></trans-unit>
+      <trans-unit id="formEditor.elements.Checkbox.label" resname="formEditor.elements.Checkbox.label" xml:space="preserve" approved="yes">
+                <source>Checkbox</source>
+            <target state="final">Casilla</target></trans-unit>
+      <trans-unit id="formEditor.elements.MultiCheckbox.label" resname="formEditor.elements.MultiCheckbox.label" xml:space="preserve" approved="yes">
+                <source>Multi checkbox</source>
+            <target state="final">Múltiples casillas</target></trans-unit>
+      <trans-unit id="formEditor.elements.MultiSelect.label" resname="formEditor.elements.MultiSelect.label" xml:space="preserve" approved="yes">
+                <source>Multi select</source>
+            <target state="final">Selección múltiple</target></trans-unit>
+      <trans-unit id="formEditor.elements.RadioButton.label" resname="formEditor.elements.RadioButton.label" xml:space="preserve" approved="yes">
+                <source>Radio button</source>
+            <target state="final">Botón de radio</target></trans-unit>
+      <trans-unit id="formEditor.elements.SingleSelect.label" resname="formEditor.elements.SingleSelect.label" xml:space="preserve" approved="yes">
+                <source>Single select</source>
+            <target state="final">Selección simple</target></trans-unit>
+      <trans-unit id="formEditor.elements.DatePicker.label" resname="formEditor.elements.DatePicker.label" xml:space="preserve" approved="yes">
+                <source>Date picker (jQuery)</source>
+            <target state="final">Selector de fecha (jQuery)</target></trans-unit>
+      <trans-unit id="formEditor.elements.DatePicker.editor.dateFormat.label" resname="formEditor.elements.DatePicker.editor.dateFormat.label" xml:space="preserve" approved="yes">
+                <source>Date format</source>
+            <target state="final">Formato de fecha</target></trans-unit>
+      <trans-unit id="formEditor.elements.StaticText.editor.label.label" resname="formEditor.elements.StaticText.editor.label.label" xml:space="preserve" approved="yes">
+                <source>Header</source>
+            <target state="final">Cabecera</target></trans-unit>
+      <trans-unit id="formEditor.elements.StaticText.editor.staticText.label" resname="formEditor.elements.StaticText.editor.staticText.label" xml:space="preserve" approved="yes">
+                <source>Text</source>
+            <target state="final">Texto</target></trans-unit>
+      <trans-unit id="formEditor.elements.Hidden.label" resname="formEditor.elements.Hidden.label" xml:space="preserve" approved="yes">
+                <source>Hidden</source>
+            <target state="final">Oculto</target></trans-unit>
+      <trans-unit id="formEditor.elements.Hidden.editor.defaultValue.label" resname="formEditor.elements.Hidden.editor.defaultValue.label" xml:space="preserve" approved="yes">
+                <source>Value</source>
+            <target state="final">Valor</target></trans-unit>
+      <trans-unit id="formEditor.elements.ContentElement.label" resname="formEditor.elements.ContentElement.label" xml:space="preserve" approved="yes">
+                <source>Content element</source>
+            <target state="final">Elemento de contenido</target></trans-unit>
+      <trans-unit id="formEditor.elements.ContentElement.selectContentElement" resname="formEditor.elements.ContentElement.selectContentElement" xml:space="preserve" approved="yes">
+                <source>No content element selected</source>
+            <target state="final">Ningún elemento de contenido seleccionado</target></trans-unit>
+      <trans-unit id="formEditor.elements.FileUpload.editor.maximumFileSize.label" resname="formEditor.elements.FileUpload.editor.maximumFileSize.label" xml:space="preserve" approved="yes">
+                <source>
+                    Your servers' maximum upload file size is {0}. Be aware setting higher values can result in errors when submitting the form.
+                    If you need higher values contact your administrator for help.
+                </source>
+            <target state="final">
+                    El tamaño máximo de archivo de tus servidores es {0}. Tenga en cuenta que el establecimiento de valores más altos puede resultar en errores al enviar el formulario.
+                    Si necesita valores más altos, póngase en contacto con su administrador para obtener ayuda.</target></trans-unit>
+      <trans-unit id="formEditor.stage.toolbar.remove" resname="formEditor.stage.toolbar.remove" xml:space="preserve" approved="yes">
+                <source>Remove</source>
+            <target state="final">Eliminar</target></trans-unit>
+      <trans-unit id="formEditor.stage.toolbar.new_element.inside" resname="formEditor.stage.toolbar.new_element.inside" xml:space="preserve" approved="yes">
+                <source>Inside</source>
+            <target state="final">Dentro</target></trans-unit>
+      <trans-unit id="formEditor.stage.toolbar.new_element.after" resname="formEditor.stage.toolbar.new_element.after" xml:space="preserve" approved="yes">
+                <source>After</source>
+            <target state="final">Después</target></trans-unit>
+      <trans-unit id="formEditor.inspector.editor.formelement_selector.no_elements" resname="formEditor.inspector.editor.formelement_selector.no_elements" xml:space="preserve" approved="yes">
+                <source>No elements available</source>
+            <target state="final">No hay elementos disponibles</target></trans-unit>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="en" datatype="plaintext" original="EXT:core/Resources/Private/Language/locallang_csh_corebe.xlf" date="2011-10-17T20:22:33Z" product-name="lang" target-language="es">
+    <header/>
+    <body>
+      <trans-unit id="list_searchbox.description" resname="list_searchbox.description" approved="yes">
+        <source>By this search box you can do a free text search in all the listed records. You can also search recursively in sub-pages by selecting a number of levels to search in the selector box to the right of the search field.</source>
+        <target state="final">Mediante este cuadro de búsqueda puede realizar una búsqueda de texto libre en todos los registros de la lista. También puede buscar recursivamente en subpáginas seleccionando un número de niveles para buscar en el cuadro selector a la derecha del campo de búsqueda.</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="en" datatype="plaintext" original="EXT:form/Resources/Private/Language/locallang_formManager_javascript.xlf" date="2016-10-09T03:38:32Z" product-name="form" target-language="es">
+    <header/>
+    <body>
+      <trans-unit id="formManager.newFormWizard.step3.check" xml:space="preserve" approved="yes">
+                <source>Please check and confirm your entered settings</source>
+            <target state="final">Por favor, comprueba y confirma la configuración introducida</target></trans-unit>
+    </body>
+  </file>
+</xliff>

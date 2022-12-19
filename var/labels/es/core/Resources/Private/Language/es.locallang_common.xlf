@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="en" datatype="plaintext" original="EXT:core/Resources/Private/Language/locallang_common.xlf" date="2011-10-17T20:22:33Z" product-name="lang" target-language="es">
+    <header/>
+    <body>
+      <trans-unit id="enable" resname="enable" approved="yes">
+        <source>Enable</source>
+        <target state="final">Activar</target>
+      </trans-unit>
+      <trans-unit id="enabled" resname="enabled" approved="yes">
+        <source>Enabled</source>
+        <target state="final">Activado</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

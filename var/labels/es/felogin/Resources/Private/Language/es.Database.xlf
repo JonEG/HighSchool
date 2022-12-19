@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="en" datatype="plaintext" original="EXT:felogin/Resources/Private/Language/Database.xlf" date="2011-10-17T20:22:32Z" product-name="felogin" target-language="es">
+    <header/>
+    <body>
+      <trans-unit id="tt_content.CType_pi1" resname="tt_content.CType_pi1" approved="yes">
+        <source>Website User Login</source>
+        <target state="final">Inicio de sesión del usuario del Website</target>
+      </trans-unit>
+      <trans-unit id="felogin_redirectPid" resname="felogin_redirectPid" approved="yes">
+        <source>Redirect at Login to Page (felogin)</source>
+        <target state="final">Redirigir a la página de inicio de sesión (felogin)</target>
+      </trans-unit>
+      <trans-unit id="felogin_forgotHash" resname="felogin_forgotHash" approved="yes">
+        <source>Forgot hash</source>
+        <target state="final">Forgot hash</target>
+      </trans-unit>
+      <trans-unit id="tt_content.pi_flexform.general_header" resname="tt_content.pi_flexform.general_header" approved="yes">
+        <source>General Header</source>
+        <target state="final">Encabezado general</target>
+      </trans-unit>
+      <trans-unit id="tt_content.pi_flexform.general_message" resname="tt_content.pi_flexform.general_message" approved="yes">
+        <source>General Message</source>
+        <target state="final">Mensaje General</target>
+      </trans-unit>
+      <trans-unit id="tt_content.pi_flexform.redirect_header" resname="tt_content.pi_flexform.redirect_header" approved="yes">
+        <source>Redirect Header</source>
+        <target state="final">Encabezado de redireccionamiento</target>
+      </trans-unit>
+      <trans-unit id="tt_content.pi_flexform.redirect_message" resname="tt_content.pi_flexform.redirect_message" approved="yes">
+        <source>Redirect Message</source>
+        <target state="final">Mensaje de redireccionamiento</target>
+      </trans-unit>
+      <trans-unit id="tt_content.pi_flexform.welcome_header" resname="tt_content.pi_flexform.welcome_header" approved="yes">
+        <source>Welcome Header</source>
+        <target state="final">Encabezado de bienvenida</target>
+      </trans-unit>
+      <trans-unit id="tt_content.pi_flexform.welcome_message" resname="tt_content.pi_flexform.welcome_message" approved="yes">
+        <source>Welcome Message</source>
+        <target state="final">Mensaje de bienvenida</target>
+      </trans-unit>
+      <trans-unit id="tt_content.pi_flexform.success_header" resname="tt_content.pi_flexform.success_header" approved="yes">
+        <source>Login Success Header</source>
+        <target state="final">Encabezado de inicio de sesión correcto</target>
+      </trans-unit>
+      <trans-unit id="tt_content.pi_flexform.success_message" resname="tt_content.pi_flexform.success_message" approved="yes">
+        <source>Login Success Message</source>
+        <target state="final">Mensaje de inicio de sesión correcto</target>
+      </trans-unit>
+      <trans-unit id="tt_content.pi_flexform.error_header" resname="tt_content.pi_flexform.error_header" approved="yes">
+        <source>Login Error Header</source>
+        <target state="final">Encabezado de inicio de sesión fallido</target>
+      </trans-unit>
+      <trans-unit id="tt_content.pi_flexform.error_message" resname="tt_content.pi_flexform.error_message" approved="yes">
+        <source>Login Error Message</source>
+        <target state="final">Mensaje de Inicio de sesión fallido</target>
+      </trans-unit>
+      <trans-unit id="tt_content.pi_flexform.logout_message" resname="tt_content.pi_flexform.logout_message" approved="yes">
+        <source>Logout Message</source>
+        <target state="final">Mensaje fin de sesión</target>
+      </trans-unit>
+      <trans-unit id="tt_content.pi_flexform.forgot_header" resname="tt_content.pi_flexform.forgot_header" approved="yes">
+        <source>Forgot Password Header</source>
+        <target state="final">Cabecera de recuperación de contraseña</target>
+      </trans-unit>
+      <trans-unit id="tt_content.pi_flexform.forgot_message" resname="tt_content.pi_flexform.forgot_message" approved="yes">
+        <source>Forgot Password Message</source>
+        <target state="final">Mensaje de recuperación de contraseña</target>
+      </trans-unit>
+      <trans-unit id="tt_content.pi_flexform.sheet_general" resname="tt_content.pi_flexform.sheet_general" approved="yes">
+        <source>General</source>
+        <target state="final">General</target>
+      </trans-unit>
+      <trans-unit id="tt_content.pi_flexform.sheet_redirect" resname="tt_content.pi_flexform.sheet_redirect" approved="yes">
+        <source>Redirects</source>
+        <target state="final">Redirección</target>
+      </trans-unit>
+      <trans-unit id="tt_content.pi_flexform.sheet_messages" resname="tt_content.pi_flexform.sheet_messages" approved="yes">
+        <source>Messages</source>
+        <target state="final">Mensaje</target>
+      </trans-unit>
+      <trans-unit id="tt_content.pi_flexform.show_forgot_password" resname="tt_content.pi_flexform.show_forgot_password" approved="yes">
+        <source>Display Password Recovery Link</source>
+        <target state="final">Desplegar enlace de recuperación de contraseña</target>
+      </trans-unit>
+      <trans-unit id="tt_content.pi_flexform.show_permalogin" resname="tt_content.pi_flexform.show_permalogin" approved="yes">
+        <source>Display Remember Login Option</source>
+        <target state="final">Desplegar la opción de recordar el inicio de sesión</target>
+      </trans-unit>
+      <trans-unit id="tt_content.pi_flexform.show_logoutFormAfterLogin" resname="tt_content.pi_flexform.show_logoutFormAfterLogin" approved="yes">
+        <source>Disable redirect after successful login, but display logout-form</source>
+        <target state="final">Desplegar formulario de fin de sesión después de iniciar sesión</target>
+      </trans-unit>
+      <trans-unit id="tt_content.pi_flexform.groupSelectmode" resname="tt_content.pi_flexform.groupSelectmode" approved="yes">
+        <source>FE group select mode:</source>
+        <target state="final">FE group select mode:</target>
+      </trans-unit>
+      <trans-unit id="tt_content.pi_flexform.groupSelectmode_showAll" resname="tt_content.pi_flexform.groupSelectmode_showAll" approved="yes">
+        <source>Show all</source>
+        <target state="final">Mostrar todo</target>
+      </trans-unit>
+      <trans-unit id="tt_content.pi_flexform.groupSelectmode_showSelected" resname="tt_content.pi_flexform.groupSelectmode_showSelected" approved="yes">
+        <source>Show selected</source>
+        <target state="final">Mostrar seleccionado</target>
+      </trans-unit>
+      <trans-unit id="tt_content.pi_flexform.groupSelectmode_DontShowSelected" resname="tt_content.pi_flexform.groupSelectmode_DontShowSelected" approved="yes">
+        <source>Don't show selected</source>
+        <target state="final">No mostrar seleccionado</target>
+      </trans-unit>
+      <trans-unit id="tt_content.pi_flexform.groupSelectmode_FromTS" resname="tt_content.pi_flexform.groupSelectmode_FromTS" approved="yes">
+        <source>(from Typoscript)</source>
+        <target state="final">(desde Typoscript)</target>
+      </trans-unit>
+      <trans-unit id="tt_content.pi_flexform.groupSelection" resname="tt_content.pi_flexform.groupSelection" approved="yes">
+        <source>FE group selection:</source>
+        <target state="final">Selección FE group:</target>
+      </trans-unit>
+      <trans-unit id="tt_content.pi_flexform.groupSelection_noGroup" resname="tt_content.pi_flexform.groupSelection_noGroup" approved="yes">
+        <source>no group</source>
+        <target state="final">no group</target>
+      </trans-unit>
+      <trans-unit id="tt_content.pi_flexform.template_file" resname="tt_content.pi_flexform.template_file" approved="yes">
+        <source>Template File</source>
+        <target state="final">Archivo de plantilla:</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
