@@ -11,7 +11,9 @@ use OvanGmbh\ClassYear\Backend\StudentListOrderingItems;
 
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 use TYPO3\CMS\Core\Context\Context;
+use TYPO3\CMS\Core\Cache\Frontend\FrontendInterface;
 use TYPO3\CMS\Extbase\Persistence\QueryInterface;
+
 
 
 class MainController extends ActionController
@@ -38,12 +40,33 @@ class MainController extends ActionController
      * @TYPO3\CMS\Extbase\Annotation\Inject
      */
     protected $categoryRepository;
-    
+
+    /**
+     * @var FrontendInterface 
+     */
+    protected $cache;
+
      /**
      * @var Context
      * @TYPO3\CMS\Extbase\Annotation\Inject
      */
     protected $context;
+
+    
+    public function __construct(FrontendInterface $cache)
+    {
+        $this->cache = $cache;
+    }
+
+    public function initializeAction(){
+        $data = 'pepe';
+
+        //store data in cache 
+        $this->cache->set('frog_name', $data, ['names']); //key, value, tags
+
+        //retrieve data from the cache 
+        $value = $this->cache->get('frog_name');
+    }
 
     public function initializeListAction()
     {

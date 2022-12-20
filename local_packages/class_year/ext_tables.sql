@@ -28,6 +28,14 @@ CREATE TABLE tx_classyear_domain_model_examquestion (
   correct_answer INT DEFAULT NULL,
 );
 
+CREATE TABLE `cache_classyear` (
+`id` int(10) UNSIGNED NOT NULL auto_increment,
+`identifier` varchar(250) NOT NULL DEFAULT '',
+`expires` int(10) UNSIGNED NOT NULL DEFAULT 0,
+`content` longblob DEFAULT NULL,
+PRIMARY KEY(id)
+);
+
 /**
 * TABLE RELATIONSHIP MANY TO MANY
 * ? Two sided many to many relation

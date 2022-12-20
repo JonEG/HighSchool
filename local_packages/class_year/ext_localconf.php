@@ -86,3 +86,21 @@ $GLOBALS ['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_tcemain.php']['pro
 // \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfigFile(
 //     '<INCLUDE_TYPOSCRIPT: source="FILE:EXT:sitepackage/Configuration/TSConfig/Page/Mod/Wizards/RandomImageContentElement.tsconfig">'
 // );
+
+//? Create a custom cache
+$conf = 'cacheConfigurations';
+$ext = 'classyear';
+
+$GLOBALS['TYPO3_CONF_VARS']['SYS']['caching'][$conf][$ext] ??= [];
+
+$GLOBALS['TYPO3_CONF_VARS']['SYS']['caching'][$conf][$ext]['frontend'] ??= 
+\TYPO3\CMS\Core\Cache\Frontend\VariableFrontend::class;
+
+$GLOBALS['TYPO3_CONF_VARS']['SYS']['caching'][$conf][$ext]['backend'] ??= 
+\TYPO3\CMS\Core\Cache\Backend\Typo3DatabaseBackend::class;
+
+$GLOBALS['TYPO3_CONF_VARS']['SYS']['caching'][$conf][$ext]['options'] ??= 
+['defaultLifetime' => 0];
+
+$GLOBALS['TYPO3_CONF_VARS']['SYS']['caching'][$conf][$ext]['groups'] ??= 
+['pages'];

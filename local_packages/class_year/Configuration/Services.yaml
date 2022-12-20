@@ -39,3 +39,13 @@ services:
     tags:
       - name: 'console.command'
         command: 'classyear:liststudents'
+
+  # register custom cache
+  cache.myCache:
+    class: TYPO3\CMS\Core\Cache\Frontend\FrontendInterface
+    factory: ['@TYPO3\CMS\Core\Cache\CacheManager', 'getCache']
+    arguments: ['classyear']
+
+  OvanGmbh\ClassYear\Controller\MainController:
+    arguments:
+      $cache: '@cache.myCache'
