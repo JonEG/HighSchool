@@ -9,10 +9,11 @@ use OvanGmbh\ClassYear\Domain\Repository\MyCategoryRepository;
 use OvanGmbh\ClassYear\Domain\Model\Classroom;
 use OvanGmbh\ClassYear\Backend\StudentListOrderingItems;
 
+use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 use TYPO3\CMS\Core\Context\Context;
-use TYPO3\CMS\Core\Cache\Frontend\FrontendInterface;
 use TYPO3\CMS\Extbase\Persistence\QueryInterface;
+use TYPO3\CMS\Core\Cache\CacheManager;
 
 
 
@@ -41,31 +42,30 @@ class MainController extends ActionController
      */
     protected $categoryRepository;
 
-    /**
-     * @var FrontendInterface 
-     */
-    protected $cache;
-
      /**
      * @var Context
      * @TYPO3\CMS\Extbase\Annotation\Inject
      */
     protected $context;
 
-    
-    public function __construct(FrontendInterface $cache)
-    {
-        $this->cache = $cache;
-    }
+    /** Cache testing */
+    private function generateCache(){
+        $cacheManager = GeneralUtility::makeInstance(CacheManager::class);
+        
+        $cacheIdentifier = 'classyear';
+        if($cacheManager->hasCache($cacheIdentifier)){
+            /** @var \TYPO3\CMS\Core\Cache\Frontend\FrontendInterface $cache */
+            $cache = $cacheManager->getCache($cacheIdentifier);
 
-    public function initializeAction(){
-        $data = 'pepe';
+            $entryIdentifier = 'pepe';
+            $cacheValue = $cache->get($entryIdentifier);
+            if(!$cacheValue){
+                $data = 'ranita verde';
+                $tags = ['animal'];
 
-        //store data in cache 
-        $this->cache->set('frog_name', $data, ['names']); //key, value, tags
-
-        //retrieve data from the cache 
-        $value = $this->cache->get('frog_name');
+                $cache->set($entryIdentifier, $data, $tags);
+            }
+        }
     }
 
     public function initializeListAction()
@@ -77,7 +77,6 @@ class MainController extends ActionController
             $this->request->setArgument('classroom', $classroomUid);
         }
     }
-
 
     /**
      * List students
