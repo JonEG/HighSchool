@@ -1,35 +1,51 @@
-<f:layout name="BackendHighSchool" />
+<html
+  xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+  data-namespace-typo3-fluid="”true”"
+>
+  <f:layout name="BackendHighSchool" />
 
-<f:section name="headline">
-  <h1>
-    <f:translate
-    key="LLL:EXT:classyear/Resources/Private/Language/locallang.xlf:student"
-    default="No translation available."
-    />
-  </h1>
-</f:section>
+  <f:section name="headline">
+    <h1>
+      <f:translate
+        key="LLL:EXT:classyear/Resources/Private/Language/locallang.xlf:student"
+        default="No translation available."
+      />
+    </h1>
+  </f:section>
 
-<f:section name="content">
-  <table border="1" cellspacing="1" cellpadding="5">
-    <tr>
+  <f:section name="content">
+    <table border="1" cellspacing="1" cellpadding="5">
+      <tr>
         <td>Name</td>
         <td>Surname</td>
         <td>Email</td>
         <td>Class</td>
         <td></td>
-    </tr>
-    <f:for each="{students}" as="student">
-          <tr>
-              <td align="top">{student.name}</td>
-              <td align="top">{student.surname}</td>
-              <td align="top">{student.email}</td>
-              <td align="top">
-                  <f:form.select name="studentClassroom" data="{'student-uid' : student.uid}" options="{classrooms}" optionLabelField="name" optionValueField="uid" value="{student.classroom.uid}"/>
-              </td>
-              <td>
-                <f:link.action action="writeEmail" arguments="{'email': student.email}">Send Email</f:link.action>
-              </td>
-          </tr>
-    </f:for>
-  </table>
-</f:section>
+      </tr>
+      <f:for each="{students}" as="student">
+        <tr>
+          <td align="top">{student.name}</td>
+          <td align="top">{student.surname}</td>
+          <td align="top">{student.email}</td>
+          <td align="top">
+            <f:form.select
+              name="studentClassroom"
+              data="{'student-uid' : student.uid}"
+              options="{classrooms}"
+              optionLabelField="name"
+              optionValueField="uid"
+              value="{student.classroom.uid}"
+            />
+          </td>
+          <td>
+            <f:link.action
+              action="writeEmail"
+              arguments="{'email': student.email}"
+              >Send Email</f:link.action
+            >
+          </td>
+        </tr>
+      </f:for>
+    </table>
+  </f:section>
+</html>

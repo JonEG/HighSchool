@@ -1,15 +1,25 @@
-<f:form class="email-form" action="sendEmail">
-  <div class="exam-form__to">
-    <label for="to">To</label>
-    <f:form.textfield name="to" required="true" readonly="true" value="{email}"/>
-  </div>
-  <div class="exam-form__subject">
-    <label for="subject">Subject</label>
-    <f:form.textfield name="subject" required="true" />
-  </div>
-  <div class="exam-form__body">
-    <label for="body">Body</label>
-    <f:form.textarea name="body" required="true" placeholder="Dear ..."/>
-  </div>
-  <f:form.submit value="Send" />
-</f:form>
+<html
+  xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+  data-namespace-typo3-fluid="”true”"
+>
+  <f:form class="email-form" action="sendEmail">
+    <div class="exam-form__to">
+      <label for="to">To</label>
+      <f:form.textfield
+        name="to"
+        required="true"
+        readonly="true"
+        value="{email}"
+      />
+    </div>
+    <div class="exam-form__subject">
+      <label for="subject">Subject</label>
+      <f:form.textfield name="subject" required="true" />
+    </div>
+    <div class="exam-form__body">
+      <label for="body">Body</label>
+      <f:form.textarea name="body" required="true" placeholder="Dear ..." />
+    </div>
+    <f:form.submit value="Send" />
+  </f:form>
+</html>
