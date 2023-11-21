@@ -41,6 +41,8 @@ page {
         }
     }
 }
+# cat=foobar/ctext/a; type=color; label=text color
+page.testing.color = red
 
 
 ##############
